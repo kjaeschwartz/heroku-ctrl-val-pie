@@ -9,6 +9,38 @@ body {
 }
 
 
+
+/* image auto-resizing */
+img {
+    width: 100%;
+    height: auto;
+}
+
+#pieL1 {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+}
+
+#pieL2 {
+    position: absolute;
+    top: 50%;
+    left: 1px;
+}
+
+#pieR1 {
+    position: absolute;
+    top: 50%;
+    right: 1px;
+}
+
+#pieR2 {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+}
+
+
 /* text styling */
 strong {
   font-weight: 600;         
@@ -75,3 +107,13 @@ h1 {
   padding-right: 10px;
   padding-top: 15px;
 }
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.chart {
+    float: left;
+    width: 25%;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 40px;
+}
+
