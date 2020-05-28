@@ -8,7 +8,23 @@ body {
     font-size: 13pt;
 }
 
+p.left_selection_prompt {
+    position: absolute;
+    top: 60%;
+    bottom: 40%;
+    left: 18%;
+    right: 60%
+}
 
+
+p.right_selection_prompt {
+    position: absolute;
+    top: 60%;
+    bottom: 40%;
+    left: 60%;
+    right: 16%
+
+}
 
 /* image auto-resizing */
 img {
@@ -110,7 +126,6 @@ h1 {
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .chart {
-    float: left;
     width: 25%;
     padding-left: 50px;
     padding-right: 50px;

@@ -131,18 +131,17 @@ var rewardAmounts = [
 
 var showRound = {
 	type: "html-keyboard-response",
-	stimulus: "<img src='static/images/2A1.png' alt='Left Left Pie Chart' class='chart'>" +
+	stimulus:	"<div id='pie_charts'>" +
+				"<img src='static/images/2A1.png' alt='Left Left Pie Chart' class='chart'>" +
 				"<img src='static/images/2A2.png' alt='Left Right Pie Chart' class='chart'>" +
 				"<img src='static/images/2B1.png' alt='Right Left Pie Chart' class='chart'>" +
-				"<img src='static/images/2B2.png' alt='Right Left Pie Chart' class='chart'>",
-
-				//"<img src='static/images/select.png' alt='Selection Arrows'>" +
-
+				"<img src='static/images/2B2.png' alt='Right Left Pie Chart' class='chart'>" +
+				"</div>" +
+				"<div class='prompt'>" +
+				"<p class='left_selection_prompt'> Press LEFT arrow to select. </p>" +
+				"<p class='right_selection_prompt'> Press RIGHT arrow to select. </p>" +
+				"</div>",
 	choices: ["left arrow", "right arrow"],
-	prompt: "<div id='prompt'>" +
-			"<p style='text-align:center;'>Press RIGHT arrow to select.</p>" +
-			"</div>"
-
 };
 
 
