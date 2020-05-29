@@ -144,15 +144,6 @@ var roundStimTemplate = "<div id='pie_charts'>" +
 						"<p class='right_selection_prompt'> Press RIGHT arrow to select. </p>" +
 						"</div>";
 
-/* Stimulus HTML template for the reward display */
-var rewardStimTemplate = "<div id = value>" +
-						 "<p>Value</p>" +
-	                     "</div>" +
-	                     "<div id ='reward'>" +
-						 "<img src='static/images/rewarded' alt='Left Left Pie Chart' class='left_left_chart'>" +
-						 "</div>";
-
-
 /* Stimulus HTML template for the room trial */
 var trialStimTemplate = "<div id ='reward'>" +
 						"<img src='static/images/blue_reward' alt='Blue Reward' class='left_reward'>" +
@@ -168,7 +159,15 @@ var trialStimTemplate = "<div id ='reward'>" +
 						"<p class='right_selection_prompt'> Press RIGHT arrow to select. </p>" +
 						"</div>";
 
-/* Returns the stimulus HTML string with the images replaced */
+/* Stimulus HTML template for the reward display */
+var rewardStimTemplate = "<div id = value>" +
+	"<p>reward_value</p>" +
+	"</div>" +
+	"<div id ='reward'>" +
+	"<img src='static/images/color_selected' alt='Selected Color' class='left_left_chart'>" +
+	"</div>";
+
+/* Returns the stimulus HTML string for the room choice page with the images replaced */
 function roundSetImages(img1, img2, img3, img4, config, stimTemplate) {
 	var imgMap = {
 		img_1: img1 + ".png",
@@ -179,6 +178,31 @@ function roundSetImages(img1, img2, img3, img4, config, stimTemplate) {
 		r_config: (config[1] === 's') ? "self-play" : "auto-play",
 	};
 	return stimTemplate.replace(/img_1|img_2|img_3|img_4|l_config|r_config/gi, function(matched) {
+		return imgMap[matched];
+	});
+}
+
+/* Returns the stimulus HTML string for the room trial page with the images and rewards replaced */
+function trialSetImages(img1, img2, blueReward, greenReward, redReward, stimTemplate) {
+	var imgMap = {
+		img_1: img1,
+		img_2: img2,
+		blue_reward: blueReward,
+		green_reward: greenReward,
+		red_reward: redReward
+	};
+	return stimTemplate.replace(/img_1|img_2|blue_reward|green_reward|red_reward/gi, function(matched) {
+		return imgMap[matched];
+	});
+}
+
+/* Returns the stimulus HTML string for the result page with the images and rewards replaced */
+function rewardSetImages(reward, color, stimTemplate) {
+	var imgMap = {
+		reward_value: reward,
+		color_selected: color
+	};
+	return stimTemplate.replace(/reward_value|color_selected/gi, function(matched) {
 		return imgMap[matched];
 	});
 }
@@ -205,18 +229,6 @@ var displayReward {
 	type: "image-keyboard-response",
 	post_trial_gap: 2000
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
