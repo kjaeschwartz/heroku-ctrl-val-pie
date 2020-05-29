@@ -128,21 +128,94 @@ var rewardAmounts = [
 		[0, 0, 0]
 ];
 
+/* Stimulus HTML template for the room choice round */
+var roundStimTemplate = "<div id='pie_charts'>" +
+						"<img src='static/images/img_1' alt='Left Left Pie Chart' class='left_left_chart'>" +
+						"<img src='static/images/img_2' alt='Left Right Pie Chart' class='left_right_chart'>" +
+						"<img src='static/images/img_3' alt='Right Left Pie Chart' class='right_left_chart'>" +
+						"<img src='static/images/img_4' alt='Right Left Pie Chart' class='right_right_chart'>" +
+						"</div>" +
+						"<div id='configuration'>" +
+						"<p class='left_config'> l_config </p>" +
+						"<p class='right_config'> r_config </p>" +
+						"</div>" +
+						"<div id='prompt'>" +
+						"<p class='left_selection_prompt'> Press LEFT arrow to select. </p>" +
+						"<p class='right_selection_prompt'> Press RIGHT arrow to select. </p>" +
+						"</div>";
+
+/* Stimulus HTML template for the reward display */
+var rewardStimTemplate = "<div id = value>" +
+						 "<p>Value</p>" +
+	                     "</div>" +
+	                     "<div id ='reward'>" +
+						 "<img src='static/images/rewarded' alt='Left Left Pie Chart' class='left_left_chart'>" +
+						 "</div>";
+
+
+/* Stimulus HTML template for the room trial */
+var trialStimTemplate = "<div id ='reward'>" +
+						"<img src='static/images/blue_reward' alt='Blue Reward' class='left_reward'>" +
+						"<img src='static/images/green_reward' alt='Green Reward' class='middle_reward'>" +
+						"<img src='static/images/red_reward' alt='Red Reward' class='right_reward'>" +
+						"</div>" +
+						"<div id='pie_charts'>" +
+						"<img src='static/images/img_1' alt='Left Pie Chart' class='left_chart'>" +
+						"<img src='static/images/img_2' alt='Right Pie Chart' class='right_chart'>" +
+						"</div>" +
+						"<div id='prompt'>" +
+						"<p class='left_selection_prompt'> Press LEFT arrow to select. </p>" +
+						"<p class='right_selection_prompt'> Press RIGHT arrow to select. </p>" +
+						"</div>";
+
+/* Returns the stimulus HTML string with the images replaced */
+function roundSetImages(img1, img2, img3, img4, config, stimTemplate) {
+	var imgMap = {
+		img_1: img1 + ".png",
+		img_2: img2 + ".png",
+		img_3: img3 + ".png",
+		img_4: img4 + ".png",
+		l_config: (config[0] === 's') ? "self-play" : "auto-play",
+		r_config: (config[1] === 's') ? "self-play" : "auto-play",
+	};
+	return stimTemplate.replace(/img_1|img_2|img_3|img_4|l_config|r_config/gi, function(matched) {
+		return imgMap[matched];
+	});
+}
+
+var randomizedRoomChoice = jsPsych.randomization.shuffle(roomChoice); //Randomized order of the room choice rounds
+var roundStims = []; //HTML templates corresponding to the randomized order of the room choice rounds
+
+for (var i=0; i < randomizedRoomChoice.length; i++) {
+	roundStims.push({
+		stimulus: roundSetImages(randomizedRoomChoice[i][0], randomizedRoomChoice[i][1],
+			                     randomizedRoomChoice[i][2], randomizedRoomChoice[i][3],
+			                     randomizedRoomChoice[i][4], roundStimTemplate)
+	})
+}
 
 var showRound = {
 	type: "html-keyboard-response",
-	stimulus:	"<div id='pie_charts'>" +
-				"<img src='static/images/2A1.png' alt='Left Left Pie Chart' class='chart'>" +
-				"<img src='static/images/2A2.png' alt='Left Right Pie Chart' class='chart'>" +
-				"<img src='static/images/2B1.png' alt='Right Left Pie Chart' class='chart'>" +
-				"<img src='static/images/2B2.png' alt='Right Left Pie Chart' class='chart'>" +
-				"</div>" +
-				"<div class='prompt'>" +
-				"<p class='left_selection_prompt'> Press LEFT arrow to select. </p>" +
-				"<p class='right_selection_prompt'> Press RIGHT arrow to select. </p>" +
-				"</div>",
-	choices: ["left arrow", "right arrow"],
+	choices: [37, 39],
+	timeline: roundStims
 };
+
+
+var displayReward {
+	type: "image-keyboard-response",
+	post_trial_gap: 2000
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -154,5 +227,8 @@ var showRound = {
 
 jsPsych.init({
 	//timeline: [instruction1, instruction2, instruction3, instructions4, showRound]
-	timeline: [showRound]
+	timeline: [showRound],
+	on_finish: function() {
+		alert("Experiment has finished.");
+	}
 });
