@@ -56,76 +56,46 @@ var instructions4 = {
 	trial_duration: null
 };
 
+var experiment = [];
+
 /*
-24x5 Matrix that specifies the room choice on each round.
+24x5 Matrix that specifies the room information on each round.
 
 Column 1: Divergence for Left room, Left pie chart
 Column 2: Divergence for Left room, Right pie chart
 Column 3: Divergence for Right room, Left pie chart
 Column 4: Divergence for Right room, Right pie chart
 Column 5: Configuration i.e. self-self, self-auto, auto-self, auto-auto
+Column 6: blue reward amount
+Column 7: green reward amount
+Column 8: red reward amount
 */
 
-var roomChoice = [	//all random for now
-		["2A1", "2A2", "2B1", "2B2", "ss"],
-		["2A1", "2A2", "2B1", "2B2", "sa"],
-		["2A1", "2A2", "2B1", "2B2", "as"],
-		["2A1", "2A2", "2B1", "2B2", "aa"],
-		["2C1", "2C2", "2D1", "2D2", "ss"],
-		["2C1", "2C2", "2D1", "2D2", "sa"],
-		["2C1", "2C2", "2D1", "2D2", "as"],
-		["2C1", "2C2", "2D1", "2D2", "aa"],
-		["60A1", "60A2", "60B1", "60B2", "ss"],
-		["60A1", "60A2", "60B1", "60B2", "sa"],
-		["60A1", "60A2", "60B1", "60B2", "as"],
-		["60A1", "60A2", "60B1", "60B2", "aa"],
-		["60C1", "60C2", "60D1", "60D2", "ss"],
-		["60C1", "60C2", "60D1", "60D2", "sa"],
-		["60C1", "60C2", "60D1", "60D2", "as"],
-		["60C1", "60C2", "60D1", "60D2", "aa"],
-		["40A1", "40A2", "40B1", "40B2", "ss"],
-		["40A1", "40A2", "40B1", "40B2", "sa"],
-		["40A1", "40A2", "40B1", "40B2", "as"],
-		["40A1", "40A2", "40B1", "40B2", "aa"],
-		["40C1", "40C2", "40D1", "40D2", "ss"],
-		["40C1", "40C2", "40D1", "40D2", "sa"],
-		["40C1", "40C2", "40D1", "40D2", "as"],
-		["40C1", "40C2", "40D1", "40D2", "aa"]
-];
-
-/*
-24x3 Matrix that specifies the reward amounts associated with the
-blue, green, red colors on each round.
-
-Column 1: blue reward amount
-Column 2: green reward amount
-Column 3: red reward amount
- */
-var rewardAmounts = [
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0],
-		[0, 0, 0]
+var roomInfo = [	//all random for now
+		["2A1", "2A2", "2B1", "2B2", "ss", 1, 2, 3],
+		["2A1", "2A2", "2B1", "2B2", "sa", 1, 2, 3],
+		["2A1", "2A2", "2B1", "2B2", "as", 1, 2, 3],
+		["2A1", "2A2", "2B1", "2B2", "aa", 1, 2, 3],
+		["2C1", "2C2", "2D1", "2D2", "ss", 2, 1, 3],
+		["2C1", "2C2", "2D1", "2D2", "sa", 2, 1, 3],
+		["2C1", "2C2", "2D1", "2D2", "as", 2, 1, 3],
+		["2C1", "2C2", "2D1", "2D2", "aa", 2, 1, 3],
+		["60A1", "60A2", "60B1", "60B2", "ss", 3, 2, 1],
+		["60A1", "60A2", "60B1", "60B2", "sa", 3, 2, 1],
+		["60A1", "60A2", "60B1", "60B2", "as", 3, 2, 1],
+		["60A1", "60A2", "60B1", "60B2", "aa", 3, 2, 1],
+		["60C1", "60C2", "60D1", "60D2", "ss", 1, 3, 2],
+		["60C1", "60C2", "60D1", "60D2", "sa", 1, 3, 2],
+		["60C1", "60C2", "60D1", "60D2", "as", 1, 3, 2],
+		["60C1", "60C2", "60D1", "60D2", "aa", 1, 3, 2],
+		["40A1", "40A2", "40B1", "40B2", "ss", 2, 3, 1],
+		["40A1", "40A2", "40B1", "40B2", "sa", 2, 3, 1],
+		["40A1", "40A2", "40B1", "40B2", "as", 2, 3, 1],
+		["40A1", "40A2", "40B1", "40B2", "aa", 2, 3, 1],
+		["40C1", "40C2", "40D1", "40D2", "ss", 12, 31, 23],
+		["40C1", "40C2", "40D1", "40D2", "sa", 12, 31, 23],
+		["40C1", "40C2", "40D1", "40D2", "as", 12, 31, 23],
+		["40C1", "40C2", "40D1", "40D2", "aa", 12, 31, 23],
 ];
 
 /* Stimulus HTML template for the room choice round */
@@ -146,9 +116,9 @@ var roundStimTemplate = "<div id='pie_charts'>" +
 
 /* Stimulus HTML template for the room trial */
 var trialStimTemplate = "<div id ='reward'>" +
-						"<img src='static/images/blue_reward' alt='Blue Reward' class='left_reward'>" +
-						"<img src='static/images/green_reward' alt='Green Reward' class='middle_reward'>" +
-						"<img src='static/images/red_reward' alt='Red Reward' class='right_reward'>" +
+						"<p class='blue_reward'> $blue_amt </p>" +
+						"<p class='green_reward'> $green_amt </p>" +
+						"<p class='red_reward'> $red_amt </p>" +
 						"</div>" +
 						"<div id='pie_charts'>" +
 						"<img src='static/images/img_1' alt='Left Pie Chart' class='left_chart'>" +
@@ -161,11 +131,11 @@ var trialStimTemplate = "<div id ='reward'>" +
 
 /* Stimulus HTML template for the reward display */
 var rewardStimTemplate = "<div id = value>" +
-	"<p>reward_value</p>" +
-	"</div>" +
-	"<div id ='reward'>" +
-	"<img src='static/images/color_selected' alt='Selected Color' class='left_left_chart'>" +
-	"</div>";
+						"<p class='reward_amt'>$reward_value</p>" +
+						"</div>" +
+						"<div id ='reward_img'>" +
+						"<img src='static/images/color_selected' alt='Selected Color' class='center_chart'>" +
+						"</div>";
 
 /* Returns the stimulus HTML string for the room choice page with the images replaced */
 function roundSetImages(img1, img2, img3, img4, config, stimTemplate) {
@@ -185,13 +155,13 @@ function roundSetImages(img1, img2, img3, img4, config, stimTemplate) {
 /* Returns the stimulus HTML string for the room trial page with the images and rewards replaced */
 function trialSetImages(img1, img2, blueReward, greenReward, redReward, stimTemplate) {
 	var imgMap = {
-		img_1: img1,
-		img_2: img2,
-		blue_reward: blueReward,
-		green_reward: greenReward,
-		red_reward: redReward
+		img_1: img1 + ".png",
+		img_2: img2 + ".png",
+		blue_amt: blueReward,
+		green_amt: greenReward,
+		red_amt: redReward,
 	};
-	return stimTemplate.replace(/img_1|img_2|blue_reward|green_reward|red_reward/gi, function(matched) {
+	return stimTemplate.replace(/img_1|img_2|blue_amt|green_amt|red_amt/gi, function(matched) {
 		return imgMap[matched];
 	});
 }
@@ -200,46 +170,69 @@ function trialSetImages(img1, img2, blueReward, greenReward, redReward, stimTemp
 function rewardSetImages(reward, color, stimTemplate) {
 	var imgMap = {
 		reward_value: reward,
-		color_selected: color
+		color_selected: color + ".png",
 	};
 	return stimTemplate.replace(/reward_value|color_selected/gi, function(matched) {
 		return imgMap[matched];
 	});
 }
 
-var randomizedRoomChoice = jsPsych.randomization.shuffle(roomChoice); //Randomized order of the room choice rounds
+var randomizedRoomChoice = jsPsych.randomization.shuffle(roomInfo); //Randomized order of the room choice rounds
 var roundStims = []; //HTML templates corresponding to the randomized order of the room choice rounds
 
 for (var i=0; i < randomizedRoomChoice.length; i++) {
-	roundStims.push({
-		stimulus: roundSetImages(randomizedRoomChoice[i][0], randomizedRoomChoice[i][1],
-			                     randomizedRoomChoice[i][2], randomizedRoomChoice[i][3],
-			                     randomizedRoomChoice[i][4], roundStimTemplate)
-	})
+	roundStims.push(
+		 roundSetImages(randomizedRoomChoice[i][0], randomizedRoomChoice[i][1],
+			 			randomizedRoomChoice[i][2], randomizedRoomChoice[i][3],
+			 			randomizedRoomChoice[i][4], roundStimTemplate)
+	)
 }
 
+/* Shows the choice between two rooms - 4 pie charts */
 var showRound = {
 	type: "html-keyboard-response",
 	choices: [37, 39],
-	timeline: roundStims
+	stimulus: roundStims.shift()
 };
 
+/* Shows the choice in a room - 2 pie charts */
+var showRoom = {
+	type: "html-keyboard-response",
+	choices: [37, 39],
+	stimulus: function() {
+		let keypress = jsPsych.data.getLastTrialData().values()[0].key_press;
+		console.log(keypress);
+		let roundInfo = randomizedRoomChoice.shift();
+		if (keypress === 37) {
+			return trialSetImages(roundInfo[0], roundInfo[1], roundInfo[5], roundInfo[6], roundInfo[7], trialStimTemplate);
+		} else if (keypress === 39) {
+			return trialSetImages(roundInfo[2], roundInfo[3], roundInfo[5], roundInfo[6], roundInfo[7], trialStimTemplate);
+		} else {
+			return "<p>Error Occurred</p>"
+		}
+	}
+};
 
-var displayReward {
-	type: "image-keyboard-response",
-	post_trial_gap: 2000
+/* Shows the reward you received from making a choice */
+var showReward = {
+	type: "html-keyboard-response",
+	choices: jsPsych.NO_KEYS,
+	trial_duration: 1500,
+	stimulus: function() {
+		return rewardSetImages(3, "Blue2", rewardStimTemplate);
+	}
+};
+
+for (let i=0; i<randomizedRoomChoice.length; i++) {
+	experiment.push(showRound, showRoom, showReward);
 }
-
-
-
-
 /*******************
  * Run Task
  ******************/
 
 jsPsych.init({
 	//timeline: [instruction1, instruction2, instruction3, instructions4, showRound]
-	timeline: [showRound],
+	timeline: experiment,
 	on_finish: function() {
 		alert("Experiment has finished.");
 	}

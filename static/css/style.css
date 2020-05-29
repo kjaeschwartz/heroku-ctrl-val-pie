@@ -127,6 +127,30 @@ h1 {
     bottom: 60%;
 }
 
+.left_chart {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    left: 19%;
+    right: 91%;
+    top: 40%;
+    bottom: 60%;
+}
+
+.right_chart {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    left: 64%;
+    right: 24%;
+    top: 40%;
+    bottom: 60%;
+}
+
+.center_chart {
+    height: 200px;
+    width: 200px;
+}
 
 p.left_selection_prompt {
     position: absolute;
@@ -159,4 +183,36 @@ p.right_config {
     bottom: 40%;
     left: 58%;
     right: 12%;
+}
+
+p.blue_reward {
+    position: absolute;
+    color: blue;
+    top: 30%;
+    left: 21%;
+    font-size: 70px;
+}
+
+p.green_reward {
+    position: absolute;
+    color: green;
+    top: 30%;
+    left: 46%;
+    font-size: 70px;
+}
+
+p.red_reward {
+    position: absolute;
+    color: red;
+    top: 30%;
+    left: 71%;
+    font-size: 70px;
+}
+
+p.reward_amt {
+    position: absolute;
+    color: blue;
+    top: 30%;
+    left: 46%;
+    font-size: 70px;
 }
