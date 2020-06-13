@@ -58,8 +58,6 @@ var instructions4 = {
 
 var experiment = [];
 
-
-
 var roomInfo = [
 		["2A1", "2A2", "2B1", "2B2", "ss",     0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.6,  0.4,  0.07, 0.2,  0.73,  0, -1,  1,  2,  2,  1],
 		["2A1", "2A2", "2B1", "2B2", "ss",     0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.6,  0.4,  0,    0.2,  0.73, 0.07,  1,  2,  1,  1, -1,  1],
@@ -142,6 +140,13 @@ var rewardStimTemplate = "<div id = value>" +
 						"<img src='static/images/color_selected' alt='Selected Color' class='center_chart'>" +
 						"</div>";
 
+var fixation = {
+	type: 'html-keyboard-response',
+	stimulus: '<div style="font-size:60px;">+</div>',
+	choices: jsPsych.NO_KEYS,
+	trial_duration: 1000,
+};
+
 /* Returns the stimulus HTML string for the room choice page with the images replaced */
 function roundSetImages(img1, img2, img3, img4, config, stimTemplate) {
 	var imgMap = {
@@ -182,8 +187,8 @@ function rewardSetImages(reward, color, stimTemplate) {
 	});
 }
 
-var randomizedRoomChoice = jsPsych.randomization.shuffle(roomInfo); //Randomized order of the room choice rounds
-var roundStims = []; //HTML templates corresponding to the randomized order of the room choice rounds
+var randomizedRoomChoice = jsPsych.randomization.shuffle(roomInfo); //Randomized order of the room choice rounds (all room info 40x23)
+var roundStims = []; //HTML templates corresponding to the randomized order of the room choice rounds (just stimulus templates)
 
 for (var i=0; i < randomizedRoomChoice.length; i++) {
 	roundStims.push(
@@ -205,13 +210,13 @@ var showRoom = {
 	type: "html-keyboard-response",
 	choices: [37, 39],
 	stimulus: function() {
-		let keypress = jsPsych.data.getLastTrialData().values()[0].key_press;
+		let keypress = jsPsych.data.get().last(2).values()[0].key_press;
 		console.log(keypress);
 		let roundInfo = randomizedRoomChoice.shift();
-		if (keypress === 37) {
-			return trialSetImages(roundInfo[0], roundInfo[1], roundInfo[5], roundInfo[6], roundInfo[7], trialStimTemplate);
-		} else if (keypress === 39) {
-			return trialSetImages(roundInfo[2], roundInfo[3], roundInfo[5], roundInfo[6], roundInfo[7], trialStimTemplate);
+		if (keypress === 37) { // Left, Get the first two images
+			return trialSetImages(roundInfo[0], roundInfo[1], roundInfo[17], roundInfo[18], roundInfo[19], trialStimTemplate);
+		} else if (keypress === 39) { // Right, Get the last two images
+			return trialSetImages(roundInfo[2], roundInfo[3], roundInfo[20], roundInfo[21], roundInfo[22], trialStimTemplate);
 		} else {
 			return "<p>Error Occurred</p>"
 		}
@@ -229,8 +234,9 @@ var showReward = {
 };
 
 for (let i=0; i<randomizedRoomChoice.length; i++) {
-	experiment.push(showRound, showRoom, showReward);
+	experiment.push(showRound, fixation, showRoom, fixation, showReward, fixation);
 }
+
 /*******************
  * Run Task
  ******************/
