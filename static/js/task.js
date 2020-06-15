@@ -134,7 +134,7 @@ var trialStimTemplate = "<div id ='reward'>" +
 
 /* Stimulus HTML template for the reward display */
 var rewardStimTemplate = "<div id = value>" +
-						"<p class='reward_amt'>$reward_value</p>" +
+						"<p class='reward_amt' style='color:text_color'>$reward_value</p>" +
 						"</div>" +
 						"<div id ='reward_img'>" +
 						"<img src='static/images/color_selected' alt='Selected Color' class='center_chart'>" +
@@ -181,8 +181,9 @@ function rewardSetImages(reward, color, stimTemplate) {
 	var imgMap = {
 		reward_value: reward,
 		color_selected: color + ".png",
+		text_color: color.substring(0, color.length - 1)
 	};
-	return stimTemplate.replace(/reward_value|color_selected/gi, function(matched) {
+	return stimTemplate.replace(/reward_value|color_selected|text_color/gi, function(matched) {
 		return imgMap[matched];
 	});
 }
@@ -198,30 +199,66 @@ for (var i=0; i < randomizedRoomChoice.length; i++) {
 	)
 }
 
+/* The current row in the matrix that is being played */
+var currentRound = null;
+
+
 /* Shows the choice between two rooms - 4 pie charts */
 var showRound = {
 	type: "html-keyboard-response",
 	choices: [37, 39],
-	stimulus: roundStims.shift()
+	stimulus: function() {
+		return roundStims.shift();
+	}
 };
+
 
 /* Shows the choice in a room - 2 pie charts */
 var showRoom = {
 	type: "html-keyboard-response",
 	choices: [37, 39],
 	stimulus: function() {
+
 		let keypress = jsPsych.data.get().last(2).values()[0].key_press;
-		console.log(keypress);
-		let roundInfo = randomizedRoomChoice.shift();
+		currentRound = randomizedRoomChoice.shift();
+
 		if (keypress === 37) { // Left, Get the first two images
-			return trialSetImages(roundInfo[0], roundInfo[1], roundInfo[17], roundInfo[18], roundInfo[19], trialStimTemplate);
+			return trialSetImages(currentRound[0], currentRound[1], currentRound[17], currentRound[18], currentRound[19], trialStimTemplate);
 		} else if (keypress === 39) { // Right, Get the last two images
-			return trialSetImages(roundInfo[2], roundInfo[3], roundInfo[20], roundInfo[21], roundInfo[22], trialStimTemplate);
+			return trialSetImages(currentRound[2], currentRound[3], currentRound[20], currentRound[21], currentRound[22], trialStimTemplate);
 		} else {
 			return "<p>Error Occurred</p>"
 		}
 	}
 };
+
+/* Uses the currentRound to determine which reward should be displayed */
+function determineReward() {
+	let roundChoice = jsPsych.data.get().last(4).values()[0].key_press;
+	let roomChoice = jsPsych.data.get().last(2).values()[0].key_press;
+	let colors = ["Red2", "Green2", "Blue2"];
+	let selection;
+	let weights;
+
+	if (roundChoice === 37 && roomChoice === 37) {
+		selection = [currentRound[17], currentRound[18], currentRound[19]];
+		weights = [currentRound[5], currentRound[6], currentRound[7]];
+	} else if (roundChoice === 37 && roomChoice === 39) {
+		selection = [currentRound[20], currentRound[21], currentRound[22]];
+		weights = [currentRound[8], currentRound[9], currentRound[10]];
+	} else if (roundChoice === 39 && roomChoice === 37) {
+		selection = [currentRound[17], currentRound[18], currentRound[19]];
+		weights = [currentRound[11], currentRound[12], currentRound[13]];
+	} else if (roundChoice === 39 && roomChoice === 39) {
+		selection = [currentRound[20], currentRound[21], currentRound[22]];
+		weights = [currentRound[14], currentRound[15], currentRound[16]];
+	}
+	let resultColor = jsPsych.randomization.sampleWithReplacement(colors, 1, weights)[0];
+	let resultValue = (resultColor === "Red2") ? (selection[0]) : ((resultColor === "Green2") ? (selection[1]) : (selection[2]));
+	return {color: resultColor, value: resultValue};
+
+}
+
 
 /* Shows the reward you received from making a choice */
 var showReward = {
@@ -229,7 +266,8 @@ var showReward = {
 	choices: jsPsych.NO_KEYS,
 	trial_duration: 1500,
 	stimulus: function() {
-		return rewardSetImages(3, "Blue2", rewardStimTemplate);
+		let reward = determineReward();
+		return rewardSetImages(reward.value, reward.color, rewardStimTemplate);
 	}
 };
 
