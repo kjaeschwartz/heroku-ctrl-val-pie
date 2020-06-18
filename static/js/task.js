@@ -119,9 +119,9 @@ var roundStimTemplate = "<div id='pie_charts'>" +
 
 /* Stimulus HTML template for the room trial */
 var trialStimTemplate = "<div id ='reward'>" +
-						"<p class='blue_reward'> $blue_amt </p>" +
-						"<p class='green_reward'> $green_amt </p>" +
 						"<p class='red_reward'> $red_amt </p>" +
+						"<p class='green_reward'> $green_amt </p>" +
+						"<p class='blue_reward'> $blue_amt </p>" +
 						"</div>" +
 						"<div id='pie_charts'>" +
 						"<img src='static/images/img_1' alt='Left Pie Chart' class='left_chart'>" +
@@ -163,13 +163,14 @@ function roundSetImages(img1, img2, img3, img4, config, stimTemplate) {
 }
 
 /* Returns the stimulus HTML string for the room trial page with the images and rewards replaced */
-function trialSetImages(img1, img2, blueReward, greenReward, redReward, stimTemplate) {
+function trialSetImages(img1, img2, redReward, greenReward, blueReward, stimTemplate) {
 	var imgMap = {
 		img_1: img1 + ".png",
 		img_2: img2 + ".png",
-		blue_amt: blueReward,
-		green_amt: greenReward,
 		red_amt: redReward,
+		green_amt: greenReward,
+		blue_amt: blueReward
+
 	};
 	return stimTemplate.replace(/img_1|img_2|blue_amt|green_amt|red_amt/gi, function(matched) {
 		return imgMap[matched];
@@ -208,7 +209,9 @@ var showRound = {
 	type: "html-keyboard-response",
 	choices: [37, 39],
 	stimulus: function() {
-		return roundStims.shift();
+		next = roundStims.shift();
+		console.log("Showing Round Stim: ", next);
+		return next;
 	}
 };
 
@@ -221,6 +224,7 @@ var showRoom = {
 
 		let keypress = jsPsych.data.get().last(2).values()[0].key_press;
 		currentRound = randomizedRoomChoice.shift();
+		console.log("Current Round Information: ", currentRound);
 
 		if (keypress === 37) { // Left, Get the first two images
 			return trialSetImages(currentRound[0], currentRound[1], currentRound[17], currentRound[18], currentRound[19], trialStimTemplate);
@@ -234,27 +238,34 @@ var showRoom = {
 
 /* Uses the currentRound to determine which reward should be displayed */
 function determineReward() {
-	let roundChoice = jsPsych.data.get().last(4).values()[0].key_press;
-	let roomChoice = jsPsych.data.get().last(2).values()[0].key_press;
+	let roundChoice = jsPsych.data.get().last(4).values()[0].key_press;	//Affects the reward values
+	let roomChoice = jsPsych.data.get().last(2).values()[0].key_press; //Affects the weights
+	console.log("Round Choice: ", roundChoice);
+	console.log("Room Choice: ", roomChoice);
+
 	let colors = ["Red2", "Green2", "Blue2"];
 	let selection;
 	let weights;
 
-	if (roundChoice === 37 && roomChoice === 37) {
+	if (roundChoice === 37) {
 		selection = [currentRound[17], currentRound[18], currentRound[19]];
-		weights = [currentRound[5], currentRound[6], currentRound[7]];
-	} else if (roundChoice === 37 && roomChoice === 39) {
+		if (roomChoice === 37) {
+			weights = [currentRound[5], currentRound[6], currentRound[7]];
+		} else if (roomChoice === 39){
+			weights = [currentRound[8], currentRound[9], currentRound[10]];
+		}
+	} else if (roundChoice === 39) {
 		selection = [currentRound[20], currentRound[21], currentRound[22]];
-		weights = [currentRound[8], currentRound[9], currentRound[10]];
-	} else if (roundChoice === 39 && roomChoice === 37) {
-		selection = [currentRound[17], currentRound[18], currentRound[19]];
-		weights = [currentRound[11], currentRound[12], currentRound[13]];
-	} else if (roundChoice === 39 && roomChoice === 39) {
-		selection = [currentRound[20], currentRound[21], currentRound[22]];
-		weights = [currentRound[14], currentRound[15], currentRound[16]];
+		if (roomChoice === 37) {
+			weights = [currentRound[11], currentRound[12], currentRound[13]];
+		} else if (roomChoice === 39) {
+			weights = [currentRound[14], currentRound[15], currentRound[16]];
+		}
 	}
 	let resultColor = jsPsych.randomization.sampleWithReplacement(colors, 1, weights)[0];
 	let resultValue = (resultColor === "Red2") ? (selection[0]) : ((resultColor === "Green2") ? (selection[1]) : (selection[2]));
+	console.log("Selected from: ", selection, " ", "with weights: ", weights);
+	console.log("Color: ", resultColor, " ", "Value: ", resultValue);
 	return {color: resultColor, value: resultValue};
 
 }
@@ -267,11 +278,13 @@ var showReward = {
 	trial_duration: 1500,
 	stimulus: function() {
 		let reward = determineReward();
+		//var all_data = jsPsych.data.get();
+		//console.log(all_data.csv());
 		return rewardSetImages(reward.value, reward.color, rewardStimTemplate);
 	}
 };
 
-for (let i=0; i<randomizedRoomChoice.length; i++) {
+for (let i=0; i<randomizedRoomChoice.length-30; i++) {
 	experiment.push(showRound, fixation, showRoom, fixation, showReward, fixation);
 }
 
@@ -284,5 +297,6 @@ jsPsych.init({
 	timeline: experiment,
 	on_finish: function() {
 		alert("Experiment has finished.");
+		jsPsych.data.get().localSave('csv','testdata.csv');
 	}
 });

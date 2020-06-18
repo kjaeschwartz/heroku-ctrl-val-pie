@@ -181,9 +181,9 @@ p.right_config {
     right: 12%;
 }
 
-p.blue_reward {
+p.red_reward {
     position: absolute;
-    color: blue;
+    color: red;
     top: 30%;
     left: 21%;
     font-size: 70px;
@@ -197,9 +197,9 @@ p.green_reward {
     font-size: 70px;
 }
 
-p.red_reward {
+p.blue_reward {
     position: absolute;
-    color: red;
+    color: blue;
     top: 30%;
     left: 71%;
     font-size: 70px;
