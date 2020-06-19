@@ -124,8 +124,10 @@ var trialStimTemplate = "<div id ='reward'>" +
 						"<p class='blue_reward'> $blue_amt </p>" +
 						"</div>" +
 						"<div id='pie_charts'>" +
-						"<img src='static/images/img_1' alt='Left Pie Chart' class='left_chart'>" +
-						"<img src='static/images/img_2' alt='Right Pie Chart' class='right_chart'>" +
+						"<img id='l_pie' src='static/images/img_1' alt='Left Pie Chart' class='left_chart'>" +
+						"<img id='r_pie' src='static/images/img_2' alt='Right Pie Chart' class='right_chart'>" +
+						//"<script>spin('l_pie');</script>" +
+						//"<script>spin('r_pie');</script>" +
 						"</div>" +
 						"<div id='prompt'>" +
 						"<p class='left_selection_prompt'> Press LEFT arrow to select. </p>" +
@@ -141,11 +143,27 @@ var rewardStimTemplate = "<div id = value>" +
 						"</div>";
 
 var fixation = {
-	type: 'html-keyboard-response',
-	stimulus: '<div style="font-size:60px;">+</div>',
+	type: 'image-keyboard-response',
+	stimulus: 'static/images/fixation.png',
 	choices: jsPsych.NO_KEYS,
 	trial_duration: 1000,
 };
+
+
+
+function spin(element, speed=20) {
+	var looper;
+	var degrees = 0;
+	var elem = document.getElementById(element);
+	elem.style.transform = "rotate(" + degrees + "deg)";
+	looper = setTimeout('spin(\''+element+'\','+speed+')', speed);
+	degrees++;
+	if (degrees > 359) {
+		degrees = 1;
+	}
+	document.getElementById("status").innerHTML = "rotate(" + degrees + "deg)";
+}
+
 
 /* Returns the stimulus HTML string for the room choice page with the images replaced */
 function roundSetImages(img1, img2, img3, img4, config, stimTemplate) {
@@ -225,11 +243,17 @@ var showRoom = {
 		let keypress = jsPsych.data.get().last(2).values()[0].key_press;
 		currentRound = randomizedRoomChoice.shift();
 		console.log("Current Round Information: ", currentRound);
+		let room;
 
 		if (keypress === 37) { // Left, Get the first two images
-			return trialSetImages(currentRound[0], currentRound[1], currentRound[17], currentRound[18], currentRound[19], trialStimTemplate);
+
+			room = trialSetImages(currentRound[0], currentRound[1], currentRound[17], currentRound[18], currentRound[19], trialStimTemplate);
+			console.log("Showing Room Stim: ", room);
+			return room;
 		} else if (keypress === 39) { // Right, Get the last two images
-			return trialSetImages(currentRound[2], currentRound[3], currentRound[20], currentRound[21], currentRound[22], trialStimTemplate);
+			room = trialSetImages(currentRound[2], currentRound[3], currentRound[20], currentRound[21], currentRound[22], trialStimTemplate);
+			console.log("Showing Room Stim: ", room);
+			return room
 		} else {
 			return "<p>Error Occurred</p>"
 		}
@@ -278,13 +302,18 @@ var showReward = {
 	trial_duration: 1500,
 	stimulus: function() {
 		let reward = determineReward();
-		//var all_data = jsPsych.data.get();
-		//console.log(all_data.csv());
+		console.log("CURRENT ROUND", currentRound);
 		return rewardSetImages(reward.value, reward.color, rewardStimTemplate);
+	},
+	on_finish: function() {
+		jsPsych.data.addProperties({img1: currentRound[0], img2: currentRound[1], img3: currentRound[2], img4: currentRound[3], config: currentRound[4],
+								   llred: currentRound[5], llgreen: currentRound[6], llblue:currentRound[7], lrred: currentRound[8], lrgreen: currentRound[9], lrblue: currentRound[10],
+			                       rlred: currentRound[11], rlgreen: currentRound[12], rlblue: currentRound[13], rrred: currentRound[14], rrgreen: currentRound[15], rrblue: currentRound[16],
+									lred: currentRound[17], lgreen: currentRound[18], lblue: currentRound[19], rred: currentRound[20], rgreen: currentRound[21], rblue: currentRound[22]});
 	}
 };
 
-for (let i=0; i<randomizedRoomChoice.length-30; i++) {
+for (let i=0; i<randomizedRoomChoice.length; i++) {
 	experiment.push(showRound, fixation, showRoom, fixation, showReward, fixation);
 }
 
@@ -297,6 +326,16 @@ jsPsych.init({
 	timeline: experiment,
 	on_finish: function() {
 		alert("Experiment has finished.");
-		jsPsych.data.get().localSave('csv','testdata.csv');
+		let saveData;
+		saveData = jsPsych.data.get().ignore('stimulus', 'trial_type').filter({trial_type: 'html-keyboard-response'}).filterCustom(function(trial) {return trial.key_press != null});
+		/*
+		saveData.ignore('stimulus');
+		saveData.ignore('trial_type');
+		saveData.ignore('trial_index');
+		saveData.ignore('time_elapsed');
+		saveData.ignore('internal_node_id');
+
+		 */
+		saveData.localSave('csv','testdata.csv');
 	}
 });
