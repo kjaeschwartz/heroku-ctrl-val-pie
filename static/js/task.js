@@ -219,7 +219,7 @@ for (var i=0; i < randomizedRoomChoice.length; i++) {
 }
 
 /* The current row in the matrix that is being played */
-var currentRound = null;
+var currentRound = randomizedRoomChoice.shift();
 
 
 /* Shows the choice between two rooms - 4 pie charts */
@@ -228,8 +228,32 @@ var showRound = {
 	choices: [37, 39],
 	stimulus: function() {
 		next = roundStims.shift();
-		console.log("Showing Round Stim: ", next);
 		return next;
+	},
+	on_finish: function(data) {
+		data.img1 = currentRound[0];
+		data.img2 = currentRound[1];
+		data.img3 = currentRound[2];
+		data.img4 = currentRound[3];
+		data.config = currentRound[4];
+		data.llred = currentRound[5];
+		data.llgreen = currentRound[6];
+		data.llblue = currentRound[7];
+		data.lrred = currentRound[8];
+		data.lrgreen = currentRound[9];
+		data.lrblue = currentRound[10];
+		data.rlred = currentRound[11];
+		data.rlgreen = currentRound[12];
+		data.rlblue = currentRound[13];
+		data.rrred = currentRound[14];
+		data.rrgreen = currentRound[15];
+		data.rrblue = currentRound[16];
+		data.lred = currentRound[17];
+		data.lgreen = currentRound[18];
+		data.lblue = currentRound[19];
+		data.rred = currentRound[20];
+		data.rgreen = currentRound[21];
+		data.rblue = currentRound[22];
 	}
 };
 
@@ -241,22 +265,46 @@ var showRoom = {
 	stimulus: function() {
 
 		let keypress = jsPsych.data.get().last(2).values()[0].key_press;
-		currentRound = randomizedRoomChoice.shift();
 		console.log("Current Round Information: ", currentRound);
 		let room;
 
 		if (keypress === 37) { // Left, Get the first two images
 
 			room = trialSetImages(currentRound[0], currentRound[1], currentRound[17], currentRound[18], currentRound[19], trialStimTemplate);
-			console.log("Showing Room Stim: ", room);
+			//console.log("Showing Room Stim: ", room);
 			return room;
 		} else if (keypress === 39) { // Right, Get the last two images
 			room = trialSetImages(currentRound[2], currentRound[3], currentRound[20], currentRound[21], currentRound[22], trialStimTemplate);
-			console.log("Showing Room Stim: ", room);
+			//console.log("Showing Room Stim: ", room);
 			return room
 		} else {
 			return "<p>Error Occurred</p>"
 		}
+	},
+	on_finish: function(data) {
+		data.img1 = currentRound[0];
+		data.img2 = currentRound[1];
+		data.img3 = currentRound[2];
+		data.img4 = currentRound[3];
+		data.config = currentRound[4];
+		data.llred = currentRound[5];
+		data.llgreen = currentRound[6];
+		data.llblue = currentRound[7];
+		data.lrred = currentRound[8];
+		data.lrgreen = currentRound[9];
+		data.lrblue = currentRound[10];
+		data.rlred = currentRound[11];
+		data.rlgreen = currentRound[12];
+		data.rlblue = currentRound[13];
+		data.rrred = currentRound[14];
+		data.rrgreen = currentRound[15];
+		data.rrblue = currentRound[16];
+		data.lred = currentRound[17];
+		data.lgreen = currentRound[18];
+		data.lblue = currentRound[19];
+		data.rred = currentRound[20];
+		data.rgreen = currentRound[21];
+		data.rblue = currentRound[22];
 	}
 };
 
@@ -264,8 +312,8 @@ var showRoom = {
 function determineReward() {
 	let roundChoice = jsPsych.data.get().last(4).values()[0].key_press;	//Affects the reward values
 	let roomChoice = jsPsych.data.get().last(2).values()[0].key_press; //Affects the weights
-	console.log("Round Choice: ", roundChoice);
-	console.log("Room Choice: ", roomChoice);
+	//console.log("Round Choice: ", roundChoice);
+	//console.log("Room Choice: ", roomChoice);
 
 	let colors = ["Red2", "Green2", "Blue2"];
 	let selection;
@@ -288,8 +336,8 @@ function determineReward() {
 	}
 	let resultColor = jsPsych.randomization.sampleWithReplacement(colors, 1, weights)[0];
 	let resultValue = (resultColor === "Red2") ? (selection[0]) : ((resultColor === "Green2") ? (selection[1]) : (selection[2]));
-	console.log("Selected from: ", selection, " ", "with weights: ", weights);
-	console.log("Color: ", resultColor, " ", "Value: ", resultValue);
+	//console.log("Selected from: ", selection, " ", "with weights: ", weights);
+	//console.log("Color: ", resultColor, " ", "Value: ", resultValue);
 	return {color: resultColor, value: resultValue};
 
 }
@@ -306,10 +354,7 @@ var showReward = {
 		return rewardSetImages(reward.value, reward.color, rewardStimTemplate);
 	},
 	on_finish: function() {
-		jsPsych.data.addProperties({img1: currentRound[0], img2: currentRound[1], img3: currentRound[2], img4: currentRound[3], config: currentRound[4],
-								   llred: currentRound[5], llgreen: currentRound[6], llblue:currentRound[7], lrred: currentRound[8], lrgreen: currentRound[9], lrblue: currentRound[10],
-			                       rlred: currentRound[11], rlgreen: currentRound[12], rlblue: currentRound[13], rrred: currentRound[14], rrgreen: currentRound[15], rrblue: currentRound[16],
-									lred: currentRound[17], lgreen: currentRound[18], lblue: currentRound[19], rred: currentRound[20], rgreen: currentRound[21], rblue: currentRound[22]});
+		currentRound = randomizedRoomChoice.shift();
 	}
 };
 
@@ -322,20 +367,13 @@ for (let i=0; i<randomizedRoomChoice.length; i++) {
  ******************/
 
 jsPsych.init({
-	//timeline: [instruction1, instruction2, instruction3, instructions4, showRound]
+	//timeline: [instruction1, instruction2, instruction3, instructions4]
 	timeline: experiment,
 	on_finish: function() {
 		alert("Experiment has finished.");
 		let saveData;
-		saveData = jsPsych.data.get().ignore('stimulus', 'trial_type').filter({trial_type: 'html-keyboard-response'}).filterCustom(function(trial) {return trial.key_press != null});
-		/*
-		saveData.ignore('stimulus');
-		saveData.ignore('trial_type');
-		saveData.ignore('trial_index');
-		saveData.ignore('time_elapsed');
-		saveData.ignore('internal_node_id');
-
-		 */
+		saveData = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'time_elapsed', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
 		saveData.localSave('csv','testdata.csv');
 	}
 });
+
