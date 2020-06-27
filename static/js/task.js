@@ -9,6 +9,7 @@ var psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
 
 var mycondition = condition;  // these two variables are passed by the psiturk server process
 var mycounterbalance = counterbalance;  // they tell you which condition you have been assigned to
+var subject_id = 'asdfh1234'; //change later
 
 /********************
 * HTML manipulation
@@ -374,6 +375,21 @@ jsPsych.init({
 		let saveData;
 		saveData = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'time_elapsed', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
 		saveData.localSave('csv','testdata.csv');
+
+		// Define data file name and get its contents from jsPsych
+		var timestamp = (new Date).toISOString().replace(/z|t/gi,' ').trim();
+		var data_file_name = 'S_' + subject_id + '_' + timestamp + '.csv';
+		var data_file_content = jsPsych.data.get();
+
+		// Post data file to /save_data_file custom Python routine
+		$.ajax({
+			type: 'POST',
+			url: "/save_data_file",
+			dataType: 'json',
+			data: {
+				file_name: data_file_name,
+				file_data: data_file_content.csv(),
+			},
+		});
 	}
 });
-

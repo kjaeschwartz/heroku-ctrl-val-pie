@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+Gender: male, female, other, PNTS
+Age: type in number
+Enthnicity: Hispanic or Latino, Not Hispanic or latino, PNTS
+Race: American Indian/Alaska Native, Asian, Native Hawaiian or Other Pacific Islander, Black or African American, White, PNTS
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Psychology Experiment - Demographics Questionnaire</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+    <link rel="icon" href="/static/favicon.ico" />
+    <script type="text/javascript">
+        function onexit() {
+            self.close(); // no harm, no foul here
+        }
+    </script>
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .legal, .legal * {
+                visibility: visible;
+            }
+            .legal {
+                position: absolute;
+                left: auto;
+                top: auto;
+                overflow:visible;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="demographics">
+
+    <h4>Please answer the demographic questions below.  All data are strictly anonymous and confidential and will not under any circumstances be passed to a third party.</h4>
+    <hr>
+    <div class="legal well">
+        <br>WHAT IS YOUR GENDER (select one)?
+        <br><input type="radio" name="Gender" value=1>Female
+        <br><input type="radio" name="Gender" value=2>Male
+        <br><input type="radio" name="Gender" value=3>Other
+        <br><input type="radio" name="Gender" value=4>Prefer Not To Say
+        <p>
+            <br>WHAT IS YOUR AGE?
+            <br>Please enter a number or N/A if you prefer not to say:
+            <input type="text" id="Age" name="Age"  size=2 maxlength=3 value="">
+        <p>
+            <br>WHAT IS YOUR ETHNICITY (select one)?
+            <br><input type="radio" name="Ethnicity" value=1>Hispanic or Latino
+            <br><input type="radio" name="Ethnicity" value=2>Not Hispanic or Latino
+            <br><input type="radio" name="Ethnicity" value=3>Prefer not to say
+        <p>
+            <br>WHAT IS YOUR RACE (select one)?
+            <br><input type="radio" name="Race" value=1>Native American or Native Alaskan
+            <br><input type="radio" name="Race" value=2>Asian
+            <br><input type="radio" name="Race" value=3">Native Hawaiian or Other Pacific Islander
+            <br><input type="radio" name="Race" value=4>Black or AfricanAmerican
+            <br><input type="radio" name="Race" value=5">White
+            <br><input type="radio" name="Race" value=6">Mixed
+            <br><input type="radio" name="Race" value=7">Prefer not to say
+    </div>
+    <hr>
+    <div style="text-align:center;">
+        <button type="button" id="submitDemo">Submit</button>
+    </div>
+</div>
+</body>
+</html>
