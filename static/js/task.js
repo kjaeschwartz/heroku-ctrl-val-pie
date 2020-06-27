@@ -114,8 +114,8 @@ var roundStimTemplate = "<div id='pie_charts'>" +
 						"<p class='right_config'> r_config </p>" +
 						"</div>" +
 						"<div id='prompt'>" +
-						"<p class='left_selection_prompt'> Press LEFT arrow to select. </p>" +
-						"<p class='right_selection_prompt'> Press RIGHT arrow to select. </p>" +
+						"<p id='left_selection_prompt'> Press LEFT arrow to select. </p>" +
+						"<p id='right_selection_prompt'> Press RIGHT arrow to select. </p>" +
 						"</div>";
 
 /* Stimulus HTML template for the room trial */
