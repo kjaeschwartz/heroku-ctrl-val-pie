@@ -4,73 +4,173 @@
   consent form.  Even if you are not required to provide
   a consent form, it is helpful to use this form to 
   describe what people can do if an error comes up, etc...
-
 -->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Psychology Experiment - Informed Consent Form</title>
-        <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" />
-        <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
-        <link rel="icon" href="/static/favicon.ico" />
-        <script type="text/javascript">
-            function onexit() {
-              self.close(); // no harm, no foul here
+<head>
+    <meta charset="utf-8" />
+    <title>Psychology Experiment - Informed Consent Form</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+    <link rel="icon" href="/static/favicon.ico" />
+    <script type="text/javascript">
+        function onexit() {
+            self.close(); // no harm, no foul here
+        }
+    </script>
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
             }
-        </script>
-		<style>
-			@media print {
-				body * {
-					visibility: hidden;
-				}
-				.legal, .legal * {
-					visibility: visible;
-				}
-				.legal {
-					position: absolute;
-					left: 0;
-					top: 0;
-					overflow:visible;
-				} 
-			}
-		</style>
-    </head>
-    <body>
-        <div id="container-consent">
-            <div id="consent">
-                <h1>We need your consent to proceed</h1>
-                <hr />
-                <div class="legal well">
-                    <p>
-                    You have been invited to take part in a research study with the Learning and Decision Neuroscience Lab.
-                    </p>
-                    <p>
-                    PUT CONSENT FORM HERE.
-                    </p>
+            .legal, .legal * {
+                visibility: visible;
+            }
+            .legal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                overflow:visible;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container-consent">
+    <div id="consent">
+        <h2>We need your consent to proceed</h2>
+        <hr/>
+        <div class="legal well">
+            <h4>You have been invited to take part in a research study with the Learning & Decision Neuroscience Laboratory at the University of California, Irvine.</h4>
 
-                    <button type="button" class="btn btn-default btn-sm" onClick="window.print();">
-                    <span class="glyphicon glyphicon-print"></span> Print a copy of this
-                    </button>
-                </div>
+            <h5>CONSENT TO ACT AS A HUMAN RESEARCH SUBJECT
+                <br>Neural and Computational Bases of Predictive Learning and its Effects on Perception and Action CAREER: Instrumental divergence and goal-directed choice (1844632)
+                <br>Lead Researcher: Mimi Liljeholm, Ph.D.
+                <br>Assistant Professor of Cognitive Sciences
+                <br>(949) 824-8444
+                <br>m.liljeholm@uci.edu</h5>
 
-                <hr />
-                <h4>Do you understand and consent to these terms?</h4>
-                <br />
+            <p>
+                <br>STUDY LOCATION(S): Online participation<br>
 
-                <center>
-                    <button type="button" class="btn btn-primary btn-lg" onClick="window.location='/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}'">
-                    <span class="glyphicon glyphicon-ok"></span> I agree 
-                    </button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-danger btn-lg" onClick="onexit()">
-                    <span class="glyphicon glyphicon-ban-circle"></span> No thanks, I do not want to do this HIT
-                    </button>
-                </center>
+                <br>SUMMARY OF KEY INFORMATION:
+                The information provided below includes a brief yet complete summary of key information about the research, presented first as required by the federal regulations. Some sections that require additional information may be repeated later in this document.
+            <p>
+                <i>Participation is Voluntary</i>
+                <br>You are being asked to participate in a research study.  Participation is completely voluntary.  Please read the information below carefully.
+            <p>
+                <i>Study Purpose</i>
+                <br>The purpose of this research study is to assess the computational and neural processes underlying discovery, generalization and application of predictive information.
+            <p>
+                <i>Study Procedures</i>
+                <br>You will be asked to engage in a computer-based task in which you will make decisions, solve problems, and/or indicate preferences.
+            <p>
+                <i>Expected Duration</i>
+                <br>Participation in the study will include a single session and take a total of 30 to 90 minutes, depending on the specific task.  The exact timing will be as specified in the SONA or HIT listing
+            <p>
+                <i>Risks of Participation</i>
+                <br>The more notable risks of participation include eye-strain from looking at a computer screen for several minutes at a time, and/or fatigue from concentrating on the stimuli and tasks.
+            <p>
+                <i> Benefits to Participants</i>
+                <br>You will not directly benefit from participation in this study.
+            <p>
+                <i>Benefits to Others or Society</i>
+                <br>Impairments in predictive learning have been associated with a wide range of behavioral, psychiatric and neurodegenerative disorders, including drug addiction, schizophrenia, depression and dementia.  Using healthy, normal, individuals to further an understanding of the processes underlying predictive learning will yield insights into dysfunctions manifested in these clinical populations.
+            <p>
+                <i>Alternative Procedures or Treatments</i>
+                <br>If you are being compensated for your participation with course credit, the course instructor offering extra course credit for participation in research must provide alternatives to earn extra course credit. The alternative assignment must require equal or less time and effort for the same amount of earned extra credit that you can earn through participation in research.
 
-            </div>
+            <p>
+                <br>HOW MANY PEOPLE WILL TAKE PART IN THIS STUDY?
+                <br>This study will include approximately 1000 participants.  All study procedures will be done online.
+
+            <p>
+                <br>AM I ELIGIBLE TO PARTICIPATE IN THIS STUDY?
+                <br>You must meet the following requirements to be in the study: You are between 18 and 75 years old, able to read and speak English, have normal vision (can be corrected to normal through the use of glasses or contact lenses), are of good health and free of neurological disease and do not have a recent history of illicit drug use.
+
+            <p>
+                <br>WHAT PROCEDURES ARE INVOLVED WITH THIS STUDY AND HOW LONG WILL THEY TAKE?
+                <br>1.	You will be asked to complete a questionnaire that requests information about your gender, ethnicity and race. You may also be asked to complete a brief survey assessing your personality traits and/or life experiences.  Then, you will be asked to engage in a task in which various images are presented on the screen. These images may represent hypothetical “real world” events, or may simply be abstract colors and shapes that are displayed with some spatial or temporal proximity.  You may be asked to rate the pleasantness of these events, or to provide estimates of their predictive or causal relationships, and to indicate your confidence in such estimates.  In some tasks, you may be required to choose between alternative actions, such as pressing a button or moving the mouse, in order to transition through a visually depicted environment, to reach a desired goal state, or to indicate your preference for one event over another.  Other times, you may be asked to watch as some other individual(s), or the computer, selects among options. All responses will be recorded by the computer. The total time to complete the task ranges from 30 to 90 minutes, depending on the specific task, and is as specified in the SONA or HIT study information.
+                <br>
+                <br>2.	Participation in the study will include a single session and take a total of about 30-90 minutes depending on the task.
+
+            <p>
+                <br>WHAT ARE THE POSSIBLE DISCOMFORTS OR RISKS RELATED TO THE STUDY?
+                <br>There are no known harms or discomforts associated with this study beyond those encountered in normal daily life.  The possible risks and/or discomforts associated with the procedures described in this study include: Eye strain from looking at a computer screen for several minutes at a time, and/or fatigue from concentrating on the stimuli and tasks.  If you experience any of these known symptoms, the study will be halted immediately. To reduce any discomfort, you will pace yourself through the trials and will be encouraged to take short breaks throughout the duration of the experiment (approximately every 30 minutes). Some participants may also experience discomfort associated with reflecting on particular emotions or life experiences while completing questionnaires.
+
+            <p>
+                <br>WILL I BE PAID FOR TAKING PART IN THIS STUDY?
+                <br><i>Compensation</i>
+                <br>You may be participating in this study for financial compensation or for UCI course credit. If you are participating for financial compensation, you will be paid $10 per hour of participation. In addition to this baseline compensation for participation, in some experiments, monetary reward contingencies are employed such that you may earn up to $15 based on the actions you perform and/or the stimuli with which you are presented.  Thus, if you participate in a 1 hour session in which monetary reward contingencies are employed, you will be compensated a minimum of $10 and may be compensated up to $25.  All monetary compensation will be provided electronically at the end of the session.
+                <br>
+                <br>If you are participating for course credit, you will receive 1 unit of eligible course credit for every 1 hour of participation. You will be responsible for distributing those credits to your eligible course through the UCI Social Sciences human subjects website (SONA).
+                <br>
+                <br><i>    Costs </i>
+                <br> There is no cost to you for participation in this study.
+
+            <p>
+                <br>WHAT HAPPENS IF I WANT TO STOP TAKING PART IN THIS STUDY?
+                <br>You are free to withdraw from this study at any time. If you elect to withdraw or are withdrawn from this research study, your data will be excluded from the analysis of study data and deleted.
+
+            <p>
+                <br>HOW WILL MY PERSONAL INFORMATION BE KEPT?
+                <br><i>   Subject Identifiable Data</i>
+                <br>   No identifiable data will be stored by the research team: All study responses, including demographics, survey- and task-related data will be stored using a randomly generated code that will not be linked to any identifiable data.
+                <br>
+                <br><i>   Data Storage</i>
+                <br>   Research data will be stored electronically on a secure computer or network in an encrypted file with password protection.
+                <br>
+                <br><i> Data Retention</i>
+                <br>   The researchers intend to keep the research data for approximately 10 years.
+
+            <p>
+                <br>WHO WILL HAVE ACCESS TO MY STUDY DATA?
+                The research team, authorized UCI personnel, and regulatory entities such as the Office of Human Research Protections (OHRP), may have access to your study records to protect your safety and welfare.
+                <br>
+                <br>   While the research team will make every effort to keep your personal information confidential, it is possible that an unauthorized person might see it.  We cannot guarantee total privacy.
+
+            <p>
+                <br>ARE THERE OTHER ISSUES TO CONSIDER IN DECIDING WHETHER TO PARTICIPATE IN THIS STUDY?
+                <br><i>   Investigator Financial Conflict of Interest</i>
+                <br>    No one on the study team has a disclosable financial interest related to this research project.
+
+            <p>
+                <br>WHO CAN ANSWER MY QUESTIONS ABOUT THE STUDY?
+                <br>If you have any comments, concerns, or questions regarding the conduct of this research, please contact the research team listed at the top of this form.
+                <br>
+                <br>Please contact UCI Institutional Review Board by phone, (949) 824-6662, by e-mail at IRB@research.uci.edu or at 141 Innovation Drive, Suite 250, Irvine, CA 92697, if you are unable to reach the researchers listed at the top of the form and have general questions; have concerns or complaints about the research; have questions about your rights as a research subject; or have general comments or suggestions.
+                <br>
+                <br>What is an IRB?  An Institutional Review Board (IRB) is a committee made up of scientists and non-scientists.  The IRB’s role is to protect the rights and welfare of human subjects involved in research.  The IRB also assures that the research complies with applicable regulations, laws, and institutional policies.
+
+            <p>    
+                <br>HOW DO I AGREE TO PARTICIPATE IN THIS STUDY?
+                <br>Participation in this study is voluntary.  You may refuse to answer any question or discontinue your involvement at any time without penalty or loss of benefits to which you might otherwise be entitled.  Your decision will not affect your future relationship with UCI or your quality of care at the UCI Medical Center.
+                <br>
+                <br>Selecting the “I agree” option below indicates that you have read and consent to the information in this form.
+
+
+            </p>
+
+            <button type="button" class="btn btn-default btn-sm" onClick="window.print();">
+                <span class="glyphicon glyphicon-print"></span> Print a copy of this
+            </button>
         </div>
-    </body>
-</html>
 
+        <hr />
+        <h4>Do you understand and consent to these terms?</h4>
+        <br />
+
+        <center>
+            <button type="button" class="btn btn-primary btn-lg" onClick="window.location='/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}'">
+                <span class="glyphicon glyphicon-ok"></span> I agree
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger btn-lg" onClick="onexit()">
+                <span class="glyphicon glyphicon-ban-circle"></span> No thanks, I do not want to do this HIT
+            </button>
+        </center>
+
+    </div>
+</div>
+</body>
+</html>
