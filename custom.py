@@ -69,6 +69,7 @@ def list_my_data():
 # example computing bonus
 # ----------------------------------------------
 
+
 @custom_code.route('/compute_bonus', methods=['GET'])
 def compute_bonus():
     # check that user provided the correct keys
@@ -99,25 +100,3 @@ def compute_bonus():
         return jsonify(**resp)
     except:
         abort(404)  # again, bad to display HTML, but...
-
-
-#----------------------------------------------
-# Get participant data file and write to file
-#----------------------------------------------
-@custom_code.route('/save_data_file', methods=['POST'])
-def save_data_file():
-    # Print message to server.log for debugging
-    current_app.logger.warning("Entered /save_data_file")
-    try:
-        # Get data from POST
-        file_name = request.form['file_name']
-        file_data = request.form['file_data']
-        # Write file to disk
-        write_file = open("data/" + file_name, "w")
-        write_file.write(file_data)
-        write_file.close()
-        # Return successfully
-        response = {"save_data_file": "success"}
-        return jsonify(**response)
-    except:
-        abort(404)
