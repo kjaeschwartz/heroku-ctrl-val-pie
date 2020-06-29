@@ -9,7 +9,7 @@ var psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
 
 var mycondition = condition;  // these two variables are passed by the psiturk server process
 var mycounterbalance = counterbalance;  // they tell you which condition you have been assigned to
-//var subject_id = uniqueID(); //change later
+var subject_id = uniqueID(); //change later
 
 // All HTML pages to be loaded
 var pages = [
@@ -17,11 +17,11 @@ var pages = [
 	"olifequestionnaire.html"
 ];
 
-// /* Subject ID generation */
-// function uniqueID() {
-// 	let id = Math.random().toString(36).substring(2) + Date.now().toString(36);
-// 	return id;
-// }
+/* Subject ID generation */
+function uniqueID() {
+	let id = Math.random().toString(36).substring(2) + Date.now().toString(36);
+	return id;
+}
 
 /********************
  * HTML manipulation
@@ -35,6 +35,7 @@ var pages = [
 var check_demo = function() {
 	var demoNames = ["Gender", "Ethnicity", "Race"];
 	var demoResponses = [];
+	let result;
 	for (var j = 0, k = demoNames.length; j < k; j++) {
 		var checkit = 0;
 		var demoVal = document.getElementsByName(demoNames[j]);
@@ -46,27 +47,28 @@ var check_demo = function() {
 		}
 		if (checkit === 0) {
 			alert("If you wish to participate, you must answer the demographic questions.'");
-			result=true
+			result = true;
 			return false;
 		} else {
-			result=false
+			result = false
 		}
 	}
-	var ageN=document.getElementById("Age").value
+	var ageN=document.getElementById("Age").value;
+	let result2;
 	if (ageN.length < 2){
-		alert("Please enter your age, or N/A")
-		result2=true;
-	}else{
+		alert("Please enter your age, or N/A");
+		result2 = true;
+	} else {
 		demoResponses.push(ageN);
 		jsPsych.data.addProperties({demographics: demoResponses});
-		result2=false;
+		result2 = false;
 	}
 	if (result === true || result2 === true) {
 		return false;
 	} else {
 		return true;
 	}
-}
+};
 
 var check_olife = function() {
 	// 1:12 UA, 13:22, IA, 23:35 CD
@@ -74,6 +76,7 @@ var check_olife = function() {
 		"16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33",
 		"34","35","36","37","38","39","40","41","42","43"];
 	var olifeResponses = [];
+	let result;
 	for (var j = 0, k = olifeNames.length; j < k; j++) {
 		var checkit = 0;
 		var olifeVal = document.getElementsByName(olifeNames[j]);
@@ -85,10 +88,10 @@ var check_olife = function() {
 		}
 		if (checkit === 0) {
 			alert("Please answer all of the questions on this page to complete the study.");
-			result=true
+			result = true;
 			return false;
 		} else {
-			result=false
+			result = false
 		}
 	}
 	if (result === true) {
@@ -98,8 +101,7 @@ var check_olife = function() {
 		return true;
 
 	}
-}
-//hello
+};
 
 // specify the demographics file
 var demographics = {
@@ -107,247 +109,7 @@ var demographics = {
 	url: "demographics.html",
 	cont_btn: "submitDemo",
 	check_fn: check_demo
-}
-
-
-
-// specify the olife questionnaire
-var olifequestionnaire = {
-	type:'external-html',
-	url: "olifequestionnaire.html",
-	execute_script: true,
-	cont_btn: "submitOLIFE",
-	check_fn: check_olife
 };
-
-
-
-/********************
- * CTRL-VAL-PIE TEST *
- ********************/
-
-/*
-Instruction Pages
- */
-
-var instruction1 = {
-	type: "image-button-response",
-	stimulus: "/static/images/Instructions1.png",
-	choices: ['Next'],
-	trial_duration: null
-};
-
-var instruction2 = {
-	type: "image-button-response",
-	stimulus: "/static/images/Instructions2.png",
-	choices: ['Next'],
-	trial_duration: null
-};
-
-var instruction3 = {
-	type: "image-button-response",
-	stimulus: "/static/images/Instructions3.png",
-	choices: ['Next'],
-	trial_duration: null
-};
-
-var instructions4 = {
-	type: "image-button-response",
-	stimulus: "/static/images/Instructions4.png",
-	choices: ['Next'],
-	trial_duration: null
-};
-
-var experiment = [];
-//
-// var roomInfo = [
-// 	["4A1",	"4A2", "10A1", "10A2", "ss",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.6,  0.4,  0.07, 0.2,  0.73,  0, -1,  1,  2,  2,  1],
-// 	["4B1",	"4B2", "10B1", "10B2", "ss",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.6,  0.4,  0,    0.2,  0.73, 0.07,  1,  2,  1,  1, -1,  1],
-// 	["4A1",	"4A2", "15A1", "15A2", "ss",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.7,  0.3,  0.1,  0.2,  0.7,   0, -1,  1, -1, -2,  1],
-// 	["4B1",	"4B2", "15B1", "15B2", "ss",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.7,  0.3,  0,    0.2,  0.7,  0.1,   1,  2,  1,  1,  2, -1],
-// 	["4A1",	"4A2", "20A1", "20A2", "ss",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.78, 0.22, 0.15, 0.2,  0.65,  0, -1,  1, -1,  2, -1],
-// 	["4B1",	"4B2", "20B1", "20B2", "ss",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.78, 0.22, 0,    0.2,  0.65, 0.15,  1,  2,  1,  0,  1, -1],
-// 	["20A1", "20A2", "10A1", "10A2", "ss", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.6,  0.4,  0.07, 0.2,  0.73, -1,  2, -1,  2,  2,  1],
-// 	["20B1", "20B2", "10B1", "10B2", "ss", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.6,  0.4,  0,    0.2,  0.73, 0.07,  0,  1, -1,  1, -1,  1],
-// 	["20A1", "20A2", "15A1", "15A2", "ss", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.7,  0.3,  0.1,  0.2,  0.7,  -1,  2, -1, -1, -2,  1],
-// 	["20B1", "20B2", "15B1", "15B2", "ss", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.7,  0.3,  0,    0.2,  0.7,  0.1,   0,  1, -1,  1,  2, -1],
-// 	["4A1",	"4A2", "10A1", "10A2", "sa",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.6,  0.4,  0.07, 0.2,  0.73,  0, -1,  1,  2,  1,  2],
-// 	["4B1",	"4B2", "10B1", "10B2", "sa",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.6,  0.4,  0,    0.2,  0.73, 0.07,  1,  2,  1, -1,  1,  1],
-// 	["4A1",	"4A2", "15A1", "15A2", "sa",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.7,  0.3,  0.1,  0.2,  0.7,   0, -1,  1,  3, -1,  1],
-// 	["4B1",	"4B2", "15B1", "15B2", "sa",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.7,  0.3,  0,    0.2,  0.7,  0.1,   1,  2,  1,  2,  1,  2],
-// 	["4A1",	"4A2", "20A1", "20A2", "sa",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.78, 0.22, 0.15, 0.2,  0.65,  0, -1,  1, -1,  2,  1],
-// 	["4B1",	"4B2", "20B1", "20B2", "sa",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.78, 0.22, 0,    0.2,  0.65, 0.15,  1,  2,  1,  1,  0,  0],
-// 	["20A1", "20A2", "10A1", "10A2", "sa", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.6,  0.4,  0.07, 0.2,  0.73, -1,  2, -1,  2,  1,  2],
-// 	["20B1", "20B2", "10B1", "10B2", "sa", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.6,  0.4,  0,    0.2,  0.73, 0.07,  0,  1, -1, -1,  1,  1],
-// 	["20A1", "20A2", "15A1", "15A2", "sa", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.7,  0.3,  0.1,  0.2,  0.7,  -1,  2, -1,  3, -1,  1],
-// 	["20B1", "20B2", "15B1", "15B2", "sa", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.7,  0.3,  0,    0.2,  0.7,  0.1,   0,  1, -1,  2,  1,  2],
-// 	["4A1",	"4A2", "10A1", "10A2", "aa",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.6,  0.4,  0.07, 0.2,  0.73,  1, -1,  1,  2,  1,  2],
-// 	["4B1",	"4B2", "10B1", "10B2", "aa",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.6,  0.4,  0,    0.2,  0.73, 0.07,  1,  2,  1, -1,  1,  1],
-// 	["4A1",	"4A2", "15A1", "15A2", "aa",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.7,  0.3,  0.1,  0.2,  0.7,   1, -1,  1,  3, -1,  1],
-// 	["4B1", "4B2", "15B1", "15B2", "aa",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.7,  0.3,  0,    0.2,  0.7,  0.1,   1,  2,  1,  2,  1,  2],
-// 	["4A1",	"4A2", "20A1", "20A2", "aa",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.78, 0.22, 0.15, 0.2,  0.65,  1, -1,  1, -1,  2,  1],
-// 	["4B1", "4B2", "20B1", "20B2", "aa",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.78, 0.22, 0,    0.2,  0.65, 0.15,  1,  2,  1,  1,  0,  0],
-// 	["20A1", "20A2", "10A1", "10A2", "aa", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.6,  0.4,  0.07, 0.2,  0.73, -1,  2,  1,  2,  1,  2],
-// 	["20B1", "20B2", "10B1", "10B2", "aa", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.6,  0.4,  0,    0.2,  0.73, 0.07,  1,  0,  0, -1,  1,  1],
-// 	["20A1", "20A2", "15A1", "15A2", "aa", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.7,  0.3,  0.1,  0.2,  0.7,  -1,  2,  1,  3, -1,  1],
-// 	["20B1", "20B2", "15B1", "15B2", "aa", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.7,  0.3,  0,    0.2,  0.7,  0.1,   1,  0,  0,  2,  1,  2],
-// 	["4A1", "4A2", "10A1", "10A2", "as",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.6,  0.4,  0.07, 0.2,  0.73,  1, -1,  1,  2,  2,  1],
-// 	["4B1", "4B2", "10B1", "10B2", "as",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.6,  0.4,  0,    0.2,  0.73, 0.07,  1,  2,  1,  1, -1,  1],
-// 	["4A1", "4A2", "15A1", "15A2", "as",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.7,  0.3,  0.1,  0.2,  0.7,   1, -1,  1, -1, -2,  1],
-// 	["4B1",	"4B2", "15B1", "15B2", "as",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.7,  0.3,  0,    0.2,  0.7,  0.1,   1,  2,  1,  1,  2, -1],
-// 	["4A1",	"4A2", "20A1", "20A2", "as",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.78, 0.22, 0.15, 0.2,  0.65,  1, -1,  1, -1,  2, -1],
-// 	["4B1",	"4B2", "20B1", "20B2", "as",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.78, 0.22, 0,    0.2,  0.65, 0.15,  1,  2,  1,  0,  1, -1],
-// 	["20A1", "20A2", "10A1", "10A2", "as", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.6,  0.4,  0.07, 0.2,  0.73, -1,  2,  1,  2,  2,  1],
-// 	["20B1", "20B2", "10B1", "10B2", "as", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.6,  0.4,  0,    0.2,  0.73, 0.07,  1,  0,  0,  1, -1,  1],
-// 	["20A1", "20A2", "15A1", "15A2", "as", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.7,  0.3,  0.1,  0.2,  0.7,  -1,  2,  1, -1, -2,  1],
-// 	["20B1", "20B2", "15B1", "15B2", "as", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.7,  0.3,  0,    0.2,  0.7,  0.1,   1,  0,  0,  1,  2, -1]
-// ];
-//
-//
-// /* Stimulus HTML template for the room choice round */
-// var roundStimTemplate = "<div id='selected'>" +
-// 						"<img src='static/images/roomSquare.png' alt='Room Selection square'  id='room_selection_square' onload='selectSquare()'> " +
-// 						"<div id='pie_charts' >" +
-// 						"<img src='static/images/img_1' alt='Left Left Pie Chart' class='left_left_chart'>" +
-// 						"<img src='static/images/img_2' alt='Left Right Pie Chart' class='left_right_chart'>" +
-// 						"<img src='static/images/img_3' alt='Right Left Pie Chart' class='right_left_chart'>" +
-// 						"<img src='static/images/img_4' alt='Right Right Pie Chart' class='right_right_chart'>" +
-// 						"</div>" +
-// 						"<div id='configuration'>" +
-// 						"<p class='left_config'> l_config </p>" +
-// 						"<p class='right_config'> r_config </p>" +
-// 						"</div>" +
-// 						"<div id='prompt'>" +
-// 						"<p id='left_selection_prompt' style='left: 18%'> Press LEFT arrow to select. </p>" +
-// 						"<p id='right_selection_prompt' style='left: 61%'> Press Right arrow to select. </p>" +
-// 						"</div>";
-//
-//
-//
-// /* Stimulus HTML template for the room trial after choice */
-// var trialStimTemplate = "<div id='selected'>" +
-// 						"<img src='static/images/pieSquare.png' alt='Pie Selection square'  id='pie_selection_square' onload='selectSquare()'> " +
-// 						"<img src='static/images/autoSquare.png' alt='Auto Selection square'  id='auto_selection_square'> " +
-// 						"</div>" +
-// 						"<div id ='reward'>" +
-// 						"<p class='blue_reward'> $blue_amt </p>" +
-// 						"<p class='green_reward'> $green_amt </p>" +
-// 						"<p class='red_reward'> $red_amt </p>" +
-// 						"</div>" +
-// 						"<div id='pie_charts'>"+
-// 						"<img src='static/images/img_1' alt='Left Pie Chart' class='left_chart' >" +
-// 						"<img src='static/images/img_2' alt='Right Pie Chart' class='right_chart'>" +
-// 						"</div>"+
-// 						"<div id='prompt'>" +
-// 						"<p id='left_selection_prompt' style='left: 17%'> Press LEFT arrow to select. </p>" +
-// 						"<p id='right_selection_prompt' style='left: 61%'> Press Right arrow to select. </p>" +
-// 						"</div>";
-//
-/*
- * Requires:
- *     psiturk.js
- *     utils.js
- */
-
-// Initalize psiturk object
-var psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
-
-var mycondition = condition;  // these two variables are passed by the psiturk server process
-var mycounterbalance = counterbalance;  // they tell you which condition you have been assigned to
-
-
-// All HTML pages to be loaded
-var pages = [
-	"demographics.html",
-	"olifequestionnaire.html"
-];
-
-
-/********************
- * HTML manipulation
- * All HTML files in the templates directory are requested
- * from the server when the PsiTurk object is created above. We
- * need code to get those pages from the PsiTurk object and
- * insert them into the document.
- *
- ********************/
-
-var check_demo = function() {
-	var demoNames = ["Gender", "Ethnicity", "Race"];
-	var demoResponses = [];
-	for (var j = 0, k = demoNames.length; j < k; j++) {
-		var checkit = 0;
-		var demoVal = document.getElementsByName(demoNames[j]);
-		for (var i = 0, l = demoVal.length; i < l; i++) {
-			if (demoVal[i].checked) {
-				demoResponses[j] = demoVal[i].value;
-				checkit++;
-			}
-		}
-		if (checkit === 0) {
-			alert("If you wish to participate, you must answer the demographic questions.'");
-			result=true
-			return false;
-		} else {
-			result=false
-		}
-	}
-	var ageN=document.getElementById("Age").value
-	if (ageN.length < 2){
-		alert("Please enter your age, or N/A")
-		result2=true;
-	}else{
-		demoResponses.push(ageN);
-		jsPsych.data.addProperties({demographics: demoResponses});
-		result2=false;
-	}
-	if (result === true || result2 === true) {
-		return false;
-	} else {
-		return true;
-	}
-}
-
-var check_olife = function() {
-	// 1:12 UA, 13:22, IA, 23:35 CD
-	var olifeNames = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15",
-		"16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33",
-		"34","35","36","37","38","39","40","41","42","43"];
-	var olifeResponses = [];
-	for (var j = 0, k = olifeNames.length; j < k; j++) {
-		var checkit = 0;
-		var olifeVal = document.getElementsByName(olifeNames[j]);
-		for (var i = 0, l = olifeVal.length; i < l; i++) {
-			if (olifeVal[i].checked) {
-				olifeResponses[j] = olifeVal[i].value; // yes=1 and no=2
-				checkit++;
-			}
-		}
-		if (checkit === 0) {
-			alert("Please answer all of the questions on this page to complete the study.");
-			result=true
-			return false;
-		} else {
-			result=false
-		}
-	}
-	if (result === true) {
-		return false;
-	} else {
-		jsPsych.data.addProperties({olife: olifeResponses});
-		return true;
-
-	}
-}
-//hello
-
-// specify the demographics file
-var demographics = {
-	type: 'external-html',
-	url: "demographics.html",
-	cont_btn: "submitDemo",
-	check_fn: check_demo
-}
 
 
 
@@ -398,19 +160,6 @@ var instructions4 = {
 };
 
 var experiment = [];
-
-/*
-24x5 Matrix that specifies the room information on each round.
-
-Column 1: Divergence for Left room, Left pie chart
-Column 2: Divergence for Left room, Right pie chart
-Column 3: Divergence for Right room, Left pie chart
-Column 4: Divergence for Right room, Right pie chart
-Column 5: Configuration i.e. self-self, self-auto, auto-self, auto-auto
-Column 6: blue reward amount
-Column 7: green reward amount
-Column 8: red reward amount
-*/
 
 var roomInfo = [
 	["4A1",	"4A2", "10A1", "10A2", "ss",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.6,  0.4,  0.07, 0.2,  0.73,  0, -1,  1,  2,  2,  1],
@@ -458,48 +207,47 @@ var roomInfo = [
 
 /* Stimulus HTML template for the room choice round */
 var roundStimTemplate = "<div id='selected'>" +
-	"<img src='static/images/roomSquare.png' alt='Room Selection square'  id='room_selection_square' onload='selectSquare()'> " +
-	"<div id='pie_charts' >" +
-	"<img src='static/images/img_1' alt='Left Left Pie Chart' class='left_left_chart'>" +
-	"<img src='static/images/img_2' alt='Left Right Pie Chart' class='left_right_chart'>" +
-	"<img src='static/images/img_3' alt='Right Left Pie Chart' class='right_left_chart'>" +
-	"<img src='static/images/img_4' alt='Right Right Pie Chart' class='right_right_chart'>" +
-	"</div>" +
-	"<div id='configuration'>" +
-	"<p class='left_config'> l_config </p>" +
-	"<p class='right_config'> r_config </p>" +
-	"</div>" +
-	"<div id='prompt'>" +
-	"<p id='left_selection_prompt' style='left: 18%'> Press LEFT arrow to select. </p>" +
-	"<p id='right_selection_prompt' style='left: 61%'> Press Right arrow to select. </p>" +
-	"</div>";
+						"<img src='static/images/roomSquare.png' alt='Room Selection square'  id='room_selection_square' onload='selectSquare()'> " +
+						"<div id='pie_charts' >" +
+						"<img src='static/images/img_1' alt='Left Left Pie Chart' class='left_left_chart'>" +
+						"<img src='static/images/img_2' alt='Left Right Pie Chart' class='left_right_chart'>" +
+						"<img src='static/images/img_3' alt='Right Left Pie Chart' class='right_left_chart'>" +
+						"<img src='static/images/img_4' alt='Right Right Pie Chart' class='right_right_chart'>" +
+						"</div>" +
+						"<div id='configuration'>" +
+						"<p class='left_config'> l_config </p>" +
+						"<p class='right_config'> r_config </p>" +
+						"</div>" +
+						"<div id='prompt'>" +
+						"<p id='left_selection_prompt' style='left: 18%'> Press LEFT arrow to select. </p>" +
+						"<p id='right_selection_prompt' style='left: 61%'> Press Right arrow to select. </p>" +
+						"</div>";
 
 
 
 /* Stimulus HTML template for the room trial after choice */
-var trialStimTemplate =
-	"<div id='selected'>" +
-	"<img src='static/images/pieSquare.png' alt='Pie Selection square'  id='pie_selection_square' onload='selectSquare()'> " +
-	"<img src='static/images/autoSquare.png' alt='Auto Selection square'  id='auto_selection_square'> " +
-	"</div>" +
-	"<div id ='reward'>" +
-	"<p class='blue_reward'> $blue_amt </p>" +
-	"<p class='green_reward'> $green_amt </p>" +
-	"<p class='red_reward'> $red_amt </p>" +
-	"</div>" +
-	"<div id='pie_charts'>"+
-	"<img src='static/images/img_1' alt='Left Pie Chart' class='left_chart' >" +
-	"<img src='static/images/img_2' alt='Right Pie Chart' class='right_chart'>" +
-	"</div>"+
-	"<div id='prompt'>" +
-	"<p id='left_selection_prompt' style='left: 17%'> Press LEFT arrow to select. </p>" +
-	"<p id='right_selection_prompt' style='left: 61%'> Press Right arrow to select. </p>" +
-	"</div>";
+var trialStimTemplate = "<div id='selected'>" +
+						"<img src='static/images/pieSquare.png' alt='Pie Selection square'  id='pie_selection_square' onload='selectSquare()'> " +
+						"<img src='static/images/autoSquare.png' alt='Auto Selection square'  id='auto_selection_square'> " +
+						"</div>" +
+						"<div id ='reward'>" +
+						"<p class='blue_reward'> $blue_amt </p>" +
+						"<p class='green_reward'> $green_amt </p>" +
+						"<p class='red_reward'> $red_amt </p>" +
+						"</div>" +
+						"<div id='pie_charts'>"+
+						"<img src='static/images/img_1' alt='Left Pie Chart' class='left_chart' >" +
+						"<img src='static/images/img_2' alt='Right Pie Chart' class='right_chart'>" +
+						"</div>"+
+						"<div id='prompt'>" +
+						"<p id='left_selection_prompt' style='left: 17%'> Press LEFT arrow to select. </p>" +
+						"<p id='right_selection_prompt' style='left: 61%'> Press Right arrow to select. </p>" +
+						"</div>";
 
 /* Stimulus HTML template for the reward display */
 var rewardStimTemplate = "<div id = value>" +
-	"<p class='reward_amt' style='color:text_color'>$reward_value</p>" +
-	"</div>"
+						 "<p class='reward_amt' style='color:text_color'>$reward_value</p>" +
+						 "</div>";
 /*
 "<div id ='reward_img'>" +
 "<img src='static/images/color_selected' alt='Selected Color' class='center_chart'>" +
@@ -663,8 +411,6 @@ var autoSelect = null;
 var reward = null;
 
 
-
-
 /* Shows the choice between two rooms - 4 pie charts */
 var showRound = {
 	type: "html-keyboard-response",
@@ -672,7 +418,6 @@ var showRound = {
 	stimulus: function() {
 		select = 3;
 		next = roundStims.shift();
-		console.log("Showing Round Stim: ", next);
 		return next;
 	},
 	on_finish: function(data) {
@@ -699,6 +444,7 @@ var showRound = {
 var showRoom = {
 	type: "html-keyboard-response",
 	choices: [37,39],
+	data: {rewVal: null, rewCol: null},
 	stimulus: function() {
 		select = 3;
 		if (chosRoom === 37) { // Left, Get the first two images
@@ -722,6 +468,9 @@ var showRoom = {
 		}
 	},
 	on_finish: function(data) {
+		reward = determineReward();
+		data.rewVal = reward.value;
+		data.rewCol = reward.color;
 		if (select === 0 && data.key_press !== autoSelect) {
 			alert('Please select the indicated option during auto-play.');
 			chosPie = autoSelect;
@@ -739,7 +488,7 @@ var showRoom = {
 		} else if (data.key_press === 39 && chosRoom === 39) {
 			data.chosPie = [currentRound[3]];
 		}
-	},
+	}
 };
 
 
@@ -761,7 +510,7 @@ var showSelect = {
 			return "<p>Error Occurred</p>"
 		}
 	}
-}
+};
 
 
 /* Shows the reward you received from making a choice */
@@ -770,44 +519,52 @@ var showReward = {
 	choices: jsPsych.NO_KEYS,
 	trial_duration: 2000,
 	stimulus: function() {
-		reward = determineReward();
 		console.log("CURRENT ROUND", currentRound);
 		return rewardSetImages(reward.value, reward.color, rewardStimTemplate);
-	},
-	on_finish: function(data) {
-		data.rewVal=reward.value;
-		data.rewCol=reward.color;
 	}
-
 };
 
 
 experiment.push(olifequestionnaire, demographics, instruction1, instruction2, instruction3, instructions4);
 
-
-let n=4; //
+let n=4;
 //for (let i=0; i<randomizedRoomChoice.length; i++) {
 for (let i=0; i<1; i++) {
-	experiment.push(showRound, showSelect)
+	experiment.push(showRound, showSelect);
 	for (let j=0; j<n; j++) {
 		experiment.push(fixation, showRoom, showSelect, showReward);
 	}
 	experiment.push(nxtround);
 }
-//}
+
 
 /*******************
  * Run Task
  ******************/
 
 jsPsych.init({
-	//timeline: [instruction1, instruction2, instruction3, instructions4, showRound]
 	timeline: experiment,
 	on_finish: function() {
 		alert("Experiment has finished.");
-		let saveData;
-		saveData = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'time_elapsed', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
-		saveData.localSave('csv','testdata.csv');
+		//let saveData;
+		//saveData = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'time_elapsed', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
+		//saveData.localSave('csv','testdata.csv');
+
+		// Define data file name and get its contents from jsPsych
+		//var timestamp = (new Date).toISOString().replace(/z|t/gi,' ').trim();
+		var data_file_name = 'cvp_S_' + subject_id + '.csv';
+		var data_file_content = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'time_elapsed', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
+
+		// Post data file to /save_data_file custom Python routine
+		$.ajax({
+			type: 'POST',
+			url: "/save_data_file",
+			dataType: 'json',
+			data: {
+				file_name: data_file_name,
+				file_data: data_file_content.csv(),
+			},
+		});
 	}
 });
 
