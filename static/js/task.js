@@ -161,7 +161,9 @@ var instructions4 = {
 
 var experiment = [];
 
-var roomInfo = [
+// Original
+var originalRoomInfo = [
+	// 0      1       2       3      4	   5      6	    7     8		9     10   11    12    13    14    15    16    17  18  19  20  21  22
 	["4A1",	"4A2", "10A1", "10A2", "ss",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.6,  0.4,  0.07, 0.2,  0.73,  0, -1,  1,  2,  2,  1],
 	["4B1",	"4B2", "10B1", "10B2", "ss",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.6,  0.4,  0,    0.2,  0.73, 0.07,  1,  2,  1,  1, -1,  1],
 	["4A1",	"4A2", "15A1", "15A2", "ss",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.7,  0.3,  0.1,  0.2,  0.7,   0, -1,  1, -1, -2,  1],
@@ -203,6 +205,62 @@ var roomInfo = [
 	["20A1", "20A2", "15A1", "15A2", "as", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.7,  0.3,  0.1,  0.2,  0.7,  -1,  2,  1, -1, -2,  1],
 	["20B1", "20B2", "15B1", "15B2", "as", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.7,  0.3,  0,    0.2,  0.7,  0.1,   1,  0,  0,  1,  2, -1]
 ];
+
+
+//Counter Balanced
+var roomInfo = [
+	// 0      1       2       3      4	   5      6	    7     8		9     10   11    12    13    14    15    16    17  18  19  20  21  22
+	["4A1",	"4A2", "10A1", "10A2", "sa",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.6,  0.4,  0.07, 0.2,  0.73,  0, -1,  1,  2,  1,  2],
+	["10A1", "10A2", "4A1",	"4A2", "ss",   0,    0.6,  0.4,  0.07, 0.2,  0.73, 0,    0.3,  0.7,  0.1,  0.2,  0.7,   2,  2,  1,  0, -1,  1],
+	["4A2", "4A1", "10A2", "10A1", "aa",   0.1,  0.2,  0.7,  0,    0.3,  0.7,  0.07, 0.2,  0.73, 0,    0.6,  0.4,   1, -1,  1,  2,  1,  2],
+	["10A2", "10A1", "4A2", "4A1", "sa",   0.07, 0.2,  0.73, 0,    0.6,  0.4,  0.1,  0.2,  0.7,  0,    0.3,  0.7,   2,  2,  1,  1, -1,  1],
+
+	["4B1",	"4B2", "10B1", "10B2", "as",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.6,  0.4,  0,    0.2,  0.73, 0.07,  1,  2,  1,  1, -1,  1],
+	["10B1", "10B2", "4B1", "4B2", "aa",   0.6,  0.4,  0,    0.2,  0.73, 0.07, 0.3,  0.7,  0,    0.2,  0.7,  0.1,   -1,  1,  1, 1,  2,  1],
+	["4B2",	"4B1", "10B2", "10B1", "ss",   0.2,  0.7,  0.1,  0.3,  0.7,  0,    0.2,  0.73, 0.07, 0.6,  0.4,  0,     1,  2,  1, -1,  1,  1],
+	["10B2", "10B1", "4B2", "4B1", "as",   0.2,  0.73, 0.07, 0.6,  0.4,  0,    0.2,  0.7,  0.1,  0.3,  0.7,  0,     1, -1,  1,  1,  2,  1],
+
+	["4A1",	"4A2", "15A1", "15A2", "sa",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.7,  0.3,  0.1,  0.2,  0.7,   0, -1,  1, -1, -2,  1],
+	["15A1", "15A2", "4A1", "4A2", "ss",   0,    0.7,  0.3,  0.1,  0.2,  0.7,  0,    0.3,  0.7,  0.1,  0.2,  0.7,   3, -1,  1,  0, -1,  1],
+	["4A2",	"4A1", "15A2", "15A1", "aa",   0.1,  0.2,  0.7,  0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.7,  0.3,   1, -1,  1,  3, -1,  1],
+	["15A2", "15A1", "4A2", "4A1", "sa",   0.1,  0.2,  0.7,  0,    0.7,  0.3,  0.1,  0.2,  0.7,  0,    0.3,  0.7,  -1, -2,  1,  1, -1,  1],
+
+	["4B1",	"4B2", "15B1", "15B2", "as",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.7,  0.3,  0,    0.2,  0.7,  0.1,   1,  2,  1,  1,  2, -1],
+	["15B1", "15B2", "4B1", "4B2", "aa",   0.7,  0.3,  0,    0.2,  0.7,  0.1,  0.3,  0.7,  0,    0.2,  0.7,  0.1,   2,  1,  2,  1,  2,  1],
+	["4B2", "4B1", "15B2", "15B1", "ss",   0.2,  0.7,  0.1,  0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.7,  0.3,  0,     1,  2,  1,  2,  1,  2],
+	["15B2", "15B1", "4B2", "4B1", "as",   0.2,  0.7,  0.1,  0.7,  0.3,  0,    0.2,  0.7,  0.1,  0.3,  0.7,  0,     1,  2, -1,  1,  2,  1],
+
+	["4A1",	"4A2", "20A1", "20A2", "sa",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.78, 0.22, 0.15, 0.2,  0.65,  0, -1,  1, -1,  2, -1],
+	["20A1", "20A2", "4A1", "4A2", "ss",   0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.3,  0.7,  0.1,  0.2,  0.7,  -1,  2,  1,  0, -1,  1],
+	["4A2",	"4A1", "20A2", "20A1", "aa",   0.1,  0.2,  0.7,  0,    0.3,  0.7,  0.15, 0.2,  0.65, 0,    0.78, 0.22,  1, -1,  1, -1,  2,  1],
+	["20A2", "20A1", "4A2", "4A1", "sa",   0.15, 0.2,  0.65, 0,    0.78, 0.22, 0.1,  0.2,  0.7,  0,    0.3,  0.7,  -1,  2, -1,  1, -1,  1],
+
+	["4B1",	"4B2", "20B1", "20B2", "as",   0.3,  0.7,  0,    0.2,  0.7,  0.1,  0.78, 0.22, 0,    0.2,  0.65, 0.15,  1,  2,  1,  0,  1, -1],
+	["20B1", "20B2", "4B1", "4B2", "aa",   0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.3,  0.7,  0,    0.2,  0.7,  0.1,   1,  0,  0,  1,  2,  1],
+	["4B2", "4B1", "20B2", "20B1", "ss",   0.2,  0.7,  0.1,  0.3,  0.7,  0,    0.2,  0.65, 0.15, 0.78, 0.22, 0,     1,  2,  1,  1,  0,  0],
+	["20B2", "20B1", "4B2", "4B1", "as",   0.2,  0.65, 0.15, 0.78, 0.22, 0,    0.2,  0.7,  0.1,  0.3,  0.7,  0,     0,  1, -1,  1,  2,  1],
+
+	["20A1", "20A2", "10A1", "10A2", "sa", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.6,  0.4,  0.07, 0.2,  0.73, -1,  2, -1,  2,  2,  1],
+	["10A1", "10A2", "20A1", "20A2", "ss", 0,    0.6,  0.4,  0.07, 0.2,  0.73, 0,    0.78, 0.22, 0.15, 0.2,  0.65,  2,  1,  2, -1,  2, -1],
+	["20A2", "20A1", "10A2", "10A1", "aa", 0.15, 0.2,  0.65, 0,    0.78, 0.22, 0.07, 0.2,  0.73, 0,    0.6,  0.4,  -1,  2,  1,  2,  1,  2],
+	["10A2", "10A1", "20A2", "20A1", "sa", 0.07, 0.2,  0.73, 0,    0.6,  0.4,  0.15, 0.2,  0.65, 0,    0.78, 0.22,  2,  2,  1, -1,  2,  1],
+
+	["20B1", "20B2", "10B1", "10B2", "as", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.6,  0.4,  0,    0.2,  0.73, 0.07,  0,  1, -1,  1, -1,  1],
+	["10B1", "10B2", "20B1", "20B2", "aa", 0.6,  0.4,  0,    0.2,  0.73, 0.07, 0.78, 0.22, 0,    0.2,  0.65, 0.15, -1,  1,  1,  0,  1, -1],
+	["20B2", "20B1", "10B2", "10B1", "ss", 0.2,  0.65, 0.15, 0.78, 0.22, 0,    0.2,  0.73, 0.07, 0.6,  0.4,  0,     1,  0,  0, -1,  1,  1],
+	["10B2", "10B1", "20B2", "20B1", "as", 0.2,  0.73, 0.07, 0.6,  0.4,  0,    0.2,  0.65, 0.15, 0.78, 0.22, 0,     1, -1,  1,  1,  0,  0],
+
+	["20A1", "20A2", "15A1", "15A2", "sa", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.7,  0.3,  0.1,  0.2,  0.7,  -1,  2, -1, -1, -2,  1],
+	["15A1", "15A2", "20A1", "20A2", "ss", 0,    0.7,  0.3,  0.1,  0.2,  0.7,  0,    0.78, 0.22, 0.15, 0.2,  0.65,  3, -1,  1, -1,  2, -1],
+	["20A2", "20A1", "15A2", "15A1", "aa", 0.15, 0.2,  0.65, 0,    0.78, 0.22, 0.1,  0.2,  0.7,  0,    0.7,  0.3,  -1,  2,  1,  3, -1,  1],
+	["15A2", "15A1", "20A2", "20A1", "sa", 0.1,  0.2,  0.7,  0,    0.7,  0.3,  0.15, 0.2,  0.65, 0,    0.78, 0.22, -1, -2,  1, -1,  2,  1],
+
+	["20B1", "20B2", "15B1", "15B2", "as", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.7,  0.3,  0,    0.2,  0.7,  0.1,   0,  1, -1,  1,  2, -1],
+	["15B1", "15B2", "20B1", "20B2", "aa", 0.7,  0.3,  0,    0.2,  0.7,  0.1,  0.78, 0.22, 0,    0.2,  0.65, 0.15,  2,  1,  2,  0,  1, -1],
+	["20B2", "20B1", "15B2", "15B1", "ss", 0.2,  0.65, 0.15, 0.78, 0.22, 0,    0.2,  0.7,  0.1,  0.7,  0.3,  0,     1,  0,  0,  2,  1,  2],
+	["15B2", "15B1", "20B2", "20B1", "as", 0.2,  0.7,  0.1,  0.7,  0.3,  0,    0.2,  0.65, 0.15, 0.78, 0.22, 0,     1,  2, -1,  1,  0,  0]
+];
+
 
 
 /* Stimulus HTML template for the room choice round */
@@ -426,13 +484,23 @@ var showRound = {
 		autoList = Math.random() < 0.5 ? [39,37,39,37] : [37, 39, 37, 39];
 		currentRound = randomizedRoomChoice.shift();
 		if (data.key_press === 37) {
-			data.chosRoom=[currentRound[0],currentRound[1]];
-			data.rewVals=[currentRound[17], currentRound[18], currentRound[19]];
-			data.Play=[currentRound[4][0]];
+			data.chosRoomID=[currentRound[0],currentRound[1]];
+			data.chosRoomProb=[currentRound[5],currentRound[6],currentRound[7],currentRound[8],currentRound[9],currentRound[10]];
+			data.chosRoomRews=[currentRound[17], currentRound[18], currentRound[19]];
+			data.chosRoomPlay=[currentRound[4][0]];
+			data.unchosRoomID=[currentRound[2],currentRound[3]];
+			data.unchosRoomProb=[currentRound[11],currentRound[12],currentRound[13],currentRound[14],currentRound[15],currentRound[16]];
+			data.unchosRoomRews=[currentRound[20], currentRound[21], currentRound[22]];
+			data.unchosRoomPlay=[currentRound[4][1]];
 		} else if (data.key_press === 39) {
-			data.chosRoom = [currentRound[2], currentRound[3]];
-			data.rewVals = [currentRound[20], currentRound[21], currentRound[22]];
-			data.Play=[currentRound[4][1]];
+			data.chosRoomID = [currentRound[2], currentRound[3]];
+			data.chosRoomProb=[currentRound[11],currentRound[12],currentRound[13],currentRound[14],currentRound[15],currentRound[16]];
+			data.chosRoomRews= [currentRound[20], currentRound[21], currentRound[22]];
+			data.chosRoomPlay=[currentRound[4][1]];
+			data.unchosRoomID=[currentRound[0],currentRound[1]];
+			data.unchosRoomProb=[currentRound[5],currentRound[6],currentRound[7],currentRound[8],currentRound[9],currentRound[10] ];
+			data.unchosRoomRews=[currentRound[17], currentRound[18], currentRound[19]];
+			data.unchosRoomPlay=[currentRound[4][0]];
 		}
 		console.log("Current Round Information: ", currentRound);
 	}
@@ -528,8 +596,7 @@ var showReward = {
 experiment.push(olifequestionnaire, demographics, instruction1, instruction2, instruction3, instructions4);
 
 let n=4;
-//for (let i=0; i<randomizedRoomChoice.length; i++) {
-for (let i=0; i<1; i++) {
+for (let i=0; i<randomizedRoomChoice.length; i++) {
 	experiment.push(showRound, showSelect);
 	for (let j=0; j<n; j++) {
 		experiment.push(fixation, showRoom, showSelect, showReward);
@@ -552,8 +619,8 @@ jsPsych.init({
 
 		// Define data file name and get its contents from jsPsych
 		//var timestamp = (new Date).toISOString().replace(/z|t/gi,' ').trim();
-		var data_file_name = 'cvp_S_' + subject_id + '.csv';
-		var data_file_content = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'time_elapsed', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
+		var data_file_name = 'CVP_task_' + subject_id + '.csv';
+		var data_file_content = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
 
 		// Post data file to /save_data_file custom Python routine
 		$.ajax({
