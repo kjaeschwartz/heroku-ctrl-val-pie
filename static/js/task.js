@@ -283,7 +283,7 @@ var roundStimTemplate = "<div id='selected'>" +
 						"</div>" +
 						"<div id='prompt'>" +
 						"<p id='left_selection_prompt' style='left: 18%'> Press LEFT arrow to select. </p>" +
-						"<p id='right_selection_prompt' style='left: 61%'> Press Right arrow to select. </p>" +
+						"<p id='right_selection_prompt' style='left: 61%'> Press RIGHT arrow to select. </p>" +
 						"</div>";
 
 
@@ -304,7 +304,7 @@ var trialStimTemplate = "<div id='selected'>" +
 						"</div>"+
 						"<div id='prompt'>" +
 						"<p id='left_selection_prompt' style='left: 17%'> Press LEFT arrow to select. </p>" +
-						"<p id='right_selection_prompt' style='left: 61%'> Press Right arrow to select. </p>" +
+						"<p id='right_selection_prompt' style='left: 61%'> Press RIGHT arrow to select. </p>" +
 						"</div>";
 
 /* Stimulus HTML template for the reward display */
