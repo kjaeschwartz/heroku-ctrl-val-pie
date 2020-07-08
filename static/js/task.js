@@ -32,9 +32,10 @@ function uniqueID() {
  *
  ********************/
 
+var demoResponses = [];
+
 var check_demo = function() {
 	var demoNames = ["Gender", "Ethnicity", "Race"];
-	var demoResponses = [];
 	let result;
 	for (var j = 0, k = demoNames.length; j < k; j++) {
 		var checkit = 0;
@@ -60,7 +61,6 @@ var check_demo = function() {
 		result2 = true;
 	} else {
 		demoResponses.push(ageN);
-		jsPsych.data.addProperties({demographics: demoResponses});
 		result2 = false;
 	}
 	if (result === true || result2 === true) {
@@ -99,7 +99,6 @@ var check_olife = function() {
 	} else {
 		jsPsych.data.addProperties({olife: olifeResponses});
 		return true;
-
 	}
 };
 
@@ -108,7 +107,13 @@ var demographics = {
 	type: 'external-html',
 	url: "demographics.html",
 	cont_btn: "submitDemo",
-	check_fn: check_demo
+	check_fn: check_demo,
+	on_finish: function(data) {
+		data.gender = demoResponses[0];
+		data.ethnicity = demoResponses[1];
+		data.race = demoResponses[2];
+		data.age = demoResponses[3];
+	}
 };
 
 
@@ -604,7 +609,6 @@ for (let i=0; i<randomizedRoomChoice.length; i++) {
 	experiment.push(nxtround);
 }
 
-
 /*******************
  * Run Task
  ******************/
@@ -613,12 +617,12 @@ jsPsych.init({
 	timeline: experiment,
 	on_finish: function() {
 		alert("Experiment has finished.");
-		//let saveData;
-		//saveData = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'time_elapsed', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
-		//saveData.localSave('csv','testdata.csv');
 
-		// Define data file name and get its contents from jsPsych
-		//var timestamp = (new Date).toISOString().replace(/z|t/gi,' ').trim();
+		var demo_file_name = 'CVP_demo_' + subject_id + '.csv';
+		var demo_file_content = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'internal_node_id', 'rt', 'key_press', 'olife', 'time_elapsed', 'url',
+																	'chosRoomID', 'chosRoomProb', 'chosRoomRews', 'chosRoomPlay',
+																	'unchosRoomID', 'unchosRoomProb', 'unchosRoomRews', 'unchosRoomPlay' ]).first(1);
+		demo_file_content.localSave('csv', demo_file_name);
 		var data_file_name = 'CVP_task_' + subject_id + '.csv';
 		var data_file_content = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
 
