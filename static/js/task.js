@@ -37,7 +37,7 @@ var demoResponses = [];
 var check_demo = function() {
 	var demoNames = ["Gender", "Ethnicity", "Race"];
 	let result;
-	for (var j = 0, k = demoNames.length; j < k; j++) {
+	for (var j = 0; j < demoNames.length; j++) {
 		var checkit = 0;
 		var demoVal = document.getElementsByName(demoNames[j]);
 		for (var i = 0, l = demoVal.length; i < l; i++) {
@@ -80,7 +80,7 @@ var check_olife = function() {
 	for (var j = 0, k = olifeNames.length; j < k; j++) {
 		var checkit = 0;
 		var olifeVal = document.getElementsByName(olifeNames[j]);
-		for (var i = 0, l = olifeVal.length; i < l; i++) {
+		for (var i = 0; i < olifeVal.length; i++) {
 			if (olifeVal[i].checked) {
 				olifeResponses[j] = olifeVal[i].value; // yes=1 and no=2
 				checkit++;
