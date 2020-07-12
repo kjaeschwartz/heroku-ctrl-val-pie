@@ -1075,3 +1075,1158 @@ Traceback (most recent call last):
     raise TemplateNotFound(template)
 jinja2.exceptions.TemplateNotFound: olifequestionnaire.html
 2020-06-28 17:34:32,926 Entered /save_data_file
+[2020-07-07 19:06:32 -0700] [25471] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:06:33 -0700] [25470] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:06:33 -0700] [25472] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:06:33 -0700] [25473] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:06:33 -0700] [25474] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:06:33 -0700] [25475] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:06:33 -0700] [25478] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:06:33 -0700] [25476] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:06:33 -0700] [25477] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:07:45 -0700] [25507] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:07:45 -0700] [25508] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:07:46 -0700] [25509] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:07:46 -0700] [25510] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:07:46 -0700] [25511] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:07:46 -0700] [25512] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:07:46 -0700] [25513] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:07:46 -0700] [25514] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:07:46 -0700] [25515] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:09:19 -0700] [25599] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:09:19 -0700] [25601] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:09:19 -0700] [25600] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:09:19 -0700] [25602] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:09:19 -0700] [25604] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:09:19 -0700] [25603] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:09:19 -0700] [25606] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:09:19 -0700] [25605] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-07 19:09:19 -0700] [25607] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+2020-07-07 19:21:35,534 Entered /save_data_file
+2020-07-07 19:31:53,321 Entered /save_data_file
+2020-07-07 19:32:01,943 Exception on /save_data_file [GET]
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2317, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1840, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1743, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1838, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1824, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 747, in regularpage
+    return render_template(pagename)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: save_data_file
+2020-07-07 19:35:30,781 Entered /save_data_file
+2020-07-07 19:40:58,956 Entered /save_data_file
+2020-07-07 19:43:21,985 Entered /save_data_file
+[2020-07-12 14:25:34 -0700] [77012] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-12 14:25:34 -0700] [77013] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-12 14:25:35 -0700] [77014] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-12 14:25:35 -0700] [77017] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-12 14:25:35 -0700] [77016] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-12 14:25:35 -0700] [77015] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-12 14:25:35 -0700] [77018] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-12 14:25:35 -0700] [77019] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+[2020-07-12 14:25:35 -0700] [77020] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1116, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 224, in register
+    deferred(state)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 245, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/blueprints.py", line 79, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 67, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Users/michelleliang/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1222, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.save_data_file
+2020-07-12 14:29:34,134 Entered /save_data_file
+2020-07-12 14:36:02,215 Entered /save_data_file
+2020-07-12 14:54:03,411 Entered /save_data_file
