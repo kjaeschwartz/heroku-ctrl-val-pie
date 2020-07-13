@@ -174,7 +174,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     height: 170px;
     width: 170px;
-    left: 19%;
+    left: 22%;
     right: 91%;
     top: 35%;
     bottom: 60%;
@@ -205,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     height: 180px;
     width: 180px;
-    left: 190px;
+    left: 60%;
     top: 34%;
     bottom: 60%;
     display: none;
@@ -215,7 +215,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     height: 180px;
     width: 180px;
-    left: 190px;
+    left: 30%;
     top: 34%;
     bottom: 60%;
     display: none;
@@ -223,11 +223,11 @@ h1, h2, h3, h4, h5, h6 {
 
 #room_selection_square{
     position: absolute;
-    height: 225px;
-    width: 340px;
-    left: 125px;
-    top: 27%;
-    bottom: 60%;
+    height: 245px;
+    width: 430px;
+    left: 30%;
+    top: 28%;
+    bottom: 54%;
     display: none;
 }
 
@@ -235,6 +235,7 @@ p#left_selection_prompt {
     position: absolute;
     top: 60%;
     bottom: 20%;
+    left: 20%;
     display: none;
 }
 
@@ -242,6 +243,7 @@ p#right_selection_prompt {
     position: absolute;
     top: 60%;
     bottom: 20%;
+    left: 63%;
     display: none;
 }
 
@@ -250,18 +252,18 @@ p.left_config {
     position: absolute;
     top: 50%;
     bottom: 40%;
-    left: 18%;
+    left: 14%;
     right: 60%;
-    font-size:22px
+    font-size:22px;
 }
 
 p.right_config {
     position: absolute;
     top: 50%;
     bottom: 40%;
-    left: 58%;
+    left: 53%;
     right: 12%;
-    font-size:22px
+    font-size:22px;
 }
 
 

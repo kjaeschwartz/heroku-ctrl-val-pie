@@ -161,6 +161,12 @@ var instructions4 = {
 
 var experiment = [];
 
+experiment.push({
+	type: "fullscreen",
+	fullscreen_mode: true,
+});
+
+
 // Original
 var originalRoomInfo = [
 	// 0      1       2       3      4	   5      6	    7     8		9     10   11    12    13    14    15    16    17  18  19  20  21  22
@@ -277,8 +283,8 @@ var roundStimTemplate = "<div id='selected'>" +
 						"<p class='right_config'> r_config </p>" +
 						"</div>" +
 						"<div id='prompt'>" +
-						"<p id='left_selection_prompt' style='left: 18%'> Press LEFT arrow to select. </p>" +
-						"<p id='right_selection_prompt' style='left: 61%'> Press RIGHT arrow to select. </p>" +
+						"<p id='left_selection_prompt'> Press LEFT arrow to select. </p>" +
+						"<p id='right_selection_prompt'> Press RIGHT arrow to select. </p>" +
 						"</div>";
 
 
@@ -298,8 +304,8 @@ var trialStimTemplate = "<div id='selected'>" +
 						"<img src='static/images/img_2' alt='Right Pie Chart' class='right_chart'>" +
 						"</div>"+
 						"<div id='prompt'>" +
-						"<p id='left_selection_prompt' style='left: 17%'> Press LEFT arrow to select. </p>" +
-						"<p id='right_selection_prompt' style='left: 61%'> Press RIGHT arrow to select. </p>" +
+						"<p id='left_selection_prompt'> Press LEFT arrow to select. </p>" +
+						"<p id='right_selection_prompt'> Press RIGHT arrow to select. </p>" +
 						"</div>";
 
 /* Stimulus HTML template for the reward display */
@@ -389,27 +395,27 @@ function rewardSetImages(amount, color, stimTemplate) {
 function selectSquare(){
 	if (select === 1){
 		if (chosPie === 37) {
-			document.getElementById('pie_selection_square').style.left = "190px";
+			document.getElementById('pie_selection_square').style.left = "22%";
 			document.getElementById('pie_selection_square').style.display = "inline";
 		} else if (chosPie === 39) {
-			document.getElementById('pie_selection_square').style.left = "650px";
+			document.getElementById('pie_selection_square').style.left = "64%";
 			document.getElementById('pie_selection_square').style.display = "inline";
 		}
 	} else if (select === 2) {
 		if (chosRoom === 37) {
-			document.getElementById('room_selection_square').style.left = "125px";
+			document.getElementById('room_selection_square').style.left = "12%";
 			document.getElementById('room_selection_square').style.display = "inline";
 		} else if (chosRoom === 39) {
-			document.getElementById('room_selection_square').style.left = "575px";
+			document.getElementById('room_selection_square').style.left = "56%";
 			document.getElementById('room_selection_square').style.display = "inline";
 		}
 	} else if (select === 0) {
 		if (autoSelect === 37) {
-			document.getElementById('auto_selection_square').style.left = "190px";
+			document.getElementById('auto_selection_square').style.left = "22%";
 			document.getElementById('auto_selection_square').style.display = "inline";
 			document.getElementById('left_selection_prompt').style.display = "inline";
 		} else if (autoSelect === 39) {
-			document.getElementById('auto_selection_square').style.left = "650px";
+			document.getElementById('auto_selection_square').style.left = "64%";
 			document.getElementById('auto_selection_square').style.display = "inline";
 			document.getElementById('right_selection_prompt').style.display = "inline";
 		}
@@ -441,8 +447,10 @@ function determineReward() {
 	}
 	let resultColor = jsPsych.randomization.sampleWithReplacement(colors, 1, weights)[0];
 	let resultValue = (resultColor === "Red2") ? (selection[0]) : ((resultColor === "Green2") ? (selection[1]) : (selection[2]));
+	console.log("Current Round: ", currentRound);
 	console.log("Selected from: ", selection, " ", "with weights: ", weights);
 	console.log("Color: ", resultColor, " ", "Value: ", resultValue);
+	console.log("Chosen Room: ", chosRoom, "Chosen Pie: ", chosPie);
 	return {color: resultColor, value: resultValue};
 }
 
@@ -502,7 +510,6 @@ var showRound = {
 			data.unchosRoomRews=[currentRound[17], currentRound[18], currentRound[19]];
 			data.unchosRoomPlay=[currentRound[4][0]];
 		}
-		console.log("Current Round Information: ", currentRound);
 	}
 };
 
@@ -521,7 +528,6 @@ var showRoom = {
 				autoSelect = autoList.shift();
 			}
 			room = trialSetImages(currentRound[0], currentRound[1], currentRound[17], currentRound[18], currentRound[19], trialStimTemplate);
-			console.log("Showing Room Stim: ", room);
 			return room;
 		} else if (chosRoom === 39) { // Right, Get the last two images
 			if (currentRound[4][1] === 'a') {
@@ -529,16 +535,12 @@ var showRoom = {
 				autoSelect = autoList.shift();
 			}
 			room = trialSetImages(currentRound[2], currentRound[3], currentRound[20], currentRound[21], currentRound[22], trialStimTemplate);
-			console.log("Showing Room Stim: ", room);
 			return room
 		} else {
 			return "<p>Error Occurred</p>"
 		}
 	},
 	on_finish: function(data) {
-		reward = determineReward();
-		data.rewVal = reward.value;
-		data.rewCol = reward.color;
 		if (select === 0 && data.key_press !== autoSelect) {
 			alert('Please select the indicated option during auto-play.');
 			chosPie = autoSelect;
@@ -547,6 +549,11 @@ var showRoom = {
 			chosPie = data.key_press;
 			select = 1;
 		}
+
+		reward = determineReward();
+		data.rewVal = reward.value;
+		data.rewCol = reward.color;
+
 		if (data.key_press === 37 && chosRoom === 37) {
 			data.chosPie = [currentRound[0]];
 		} else if (data.key_press === 39 && chosRoom === 37) {
@@ -567,7 +574,6 @@ var showSelect = {
 	stimulus: function() {
 		if (select === 1) {
 			if (chosPie === 37 || chosPie === 39) {
-				console.log("Showing Room Select: ", room);
 				return room
 			}
 		} else if (select === 2) {
@@ -587,7 +593,6 @@ var showReward = {
 	choices: jsPsych.NO_KEYS,
 	trial_duration: 2000,
 	stimulus: function() {
-		console.log("CURRENT ROUND", currentRound);
 		return rewardSetImages(reward.value, reward.color, rewardStimTemplate);
 	}
 };
@@ -601,7 +606,10 @@ for (let i=0; i<randomizedRoomChoice.length; i++) {
 	for (let j=0; j<n; j++) {
 		experiment.push(fixation, showRoom, showSelect, showReward);
 	}
-	experiment.push(nxtround);
+
+	if (i != randomizedRoomChoice.length-1) {
+		experiment.push(nxtround);
+	}
 }
 
 /*******************
