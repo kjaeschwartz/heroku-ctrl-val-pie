@@ -168,6 +168,7 @@ experiment.push({
 
 
 // Original
+/*
 var originalRoomInfo = [
 	// 0      1       2       3      4	   5      6	    7     8		9     10   11    12    13    14    15    16    17  18  19  20  21  22
 	["4A1",	"4A2", "10A1", "10A2", "ss",   0,    0.3,  0.7,  0.1,  0.2,  0.7,  0,    0.6,  0.4,  0.07, 0.2,  0.73,  0, -1,  1,  2,  2,  1],
@@ -211,7 +212,7 @@ var originalRoomInfo = [
 	["20A1", "20A2", "15A1", "15A2", "as", 0,    0.78, 0.22, 0.15, 0.2,  0.65, 0,    0.7,  0.3,  0.1,  0.2,  0.7,  -1,  2,  1, -1, -2,  1],
 	["20B1", "20B2", "15B1", "15B2", "as", 0.78, 0.22, 0,    0.2,  0.65, 0.15, 0.7,  0.3,  0,    0.2,  0.7,  0.1,   1,  0,  0,  1,  2, -1]
 ];
-
+*/
 
 //Counter Balanced
 var roomInfo = [
@@ -598,7 +599,7 @@ var showReward = {
 };
 
 
-experiment.push(olifequestionnaire, demographics, instruction1, instruction2, instruction3, instructions4);
+experiment.push(demographics, instruction1, instruction2, instruction3, instructions4);
 
 let n=4;
 for (let i=0; i<randomizedRoomChoice.length; i++) {
@@ -611,6 +612,8 @@ for (let i=0; i<randomizedRoomChoice.length; i++) {
 		experiment.push(nxtround);
 	}
 }
+
+experiment.push(olifequestionnaire);
 
 /*******************
  * Run Task
