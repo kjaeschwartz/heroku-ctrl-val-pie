@@ -77,8 +77,9 @@ var check_olife = function() {
 		"16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33",
 		"34","35","36","37","38","39","40","41","42","43"];
 	var olifeResponses = [];
+	var olifeQuestions = [];
 	let result;
-	for (var j = 0, k = olifeNames.length; j < k; j++) {
+	for (var j = 0; j < olifeNames.length; j++) {
 		var checkit = 0;
 		var olifeVal = document.getElementsByName(olifeNames[j]);
 		for (var i = 0; i < olifeVal.length; i++) {
@@ -98,7 +99,7 @@ var check_olife = function() {
 	if (result === true) {
 		return false;
 	} else {
-		jsPsych.data.addProperties({olife: olifeResponses});
+		jsPsych.data.addProperties({olifeResp: olifeResponses});
 		return true;
 	}
 };
@@ -110,7 +111,6 @@ var demographics = {
 	cont_btn: "submitDemo",
 	check_fn: check_demo
 };
-
 
 
 // specify the olife questionnaire
@@ -155,6 +155,13 @@ var instruction3 = {
 var instructions4 = {
 	type: "image-button-response",
 	stimulus: "/static/images/Instructions4.png",
+	choices: ['Next'],
+	trial_duration: null
+};
+
+var instructions5 = {
+	type: "image-button-response",
+	stimulus: "/static/images/Instructions5.png",
 	choices: ['Next'],
 	trial_duration: null
 };
@@ -599,6 +606,7 @@ var showReward = {
 };
 
 
+
 experiment.push(demographics, instruction1, instruction2, instruction3, instructions4);
 
 let n=4;
@@ -608,12 +616,12 @@ for (let i=0; i<randomizedRoomChoice.length; i++) {
 		experiment.push(fixation, showRoom, showSelect, showReward);
 	}
 
-	if (i != randomizedRoomChoice.length-1) {
+	if (i !== randomizedRoomChoice.length-1) {
 		experiment.push(nxtround);
 	}
 }
 
-experiment.push(olifequestionnaire);
+experiment.push(instructions5, olifequestionnaire);
 
 /*******************
  * Run Task
@@ -624,7 +632,7 @@ jsPsych.init({
 	on_finish: function() {
 		alert("Experiment has finished.");
 
-		var data_file_name = 'CVP_task_' + subject_id + '.csv';
+		var data_file_name = 'CVP_' + subject_id + '.csv';
 		var data_file_content = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
 
 		// Post data file to /save_data_file custom Python routine
