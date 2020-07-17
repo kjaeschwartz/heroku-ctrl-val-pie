@@ -622,7 +622,7 @@ experiment.push(olifequestionnaire);
 jsPsych.init({
 	timeline: experiment,
 	on_finish: function() {
-		alert("Experiment has finished.");
+		alert("The experiment has finished.");
 
 		var data_file_name = 'CVP_task_' + subject_id + '.csv';
 		var data_file_content = jsPsych.data.get().ignore(['stimulus', 'trial_type', 'trial_index', 'internal_node_id']).filterCustom(function(trial) {return trial.key_press != null});
