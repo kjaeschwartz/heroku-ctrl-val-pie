@@ -152,9 +152,16 @@ var instruction3 = {
 	trial_duration: null
 };
 
-var instructions4 = {
+var instruction4 = {
 	type: "image-button-response",
 	stimulus: "/static/images/Instructions4.png",
+	choices: ['Next'],
+	trial_duration: null
+};
+
+var instruction5 = {
+	type: "image-button-response",
+	stimulus: "/static/images/Instructions5.png",
 	choices: ['Next'],
 	trial_duration: null
 };
@@ -599,7 +606,7 @@ var showReward = {
 };
 
 
-experiment.push(demographics, instruction1, instruction2, instruction3, instructions4);
+experiment.push(demographics, instruction1, instruction2, instruction3, instruction4);
 
 let n=4;
 for (let i=0; i<randomizedRoomChoice.length; i++) {
@@ -613,7 +620,7 @@ for (let i=0; i<randomizedRoomChoice.length; i++) {
 	}
 }
 
-experiment.push(olifequestionnaire);
+experiment.push(instruction5, olifequestionnaire);
 
 /*******************
  * Run Task
