@@ -17,6 +17,9 @@ var pages = [
 	"olifequestionnaire.html"
 ];
 
+// Experiment timeline
+var experiment = [];
+
 /* Subject ID generation */
 function uniqueID() {
 	let id = Math.random().toString(36).substring(2) + Date.now().toString(36);
@@ -131,33 +134,15 @@ var olifequestionnaire = {
 Instruction Pages
  */
 
-var instruction1 = {
-	type: "image-button-response",
-	stimulus: "/static/images/Instructions1.png",
-	choices: ['Next'],
-	trial_duration: null
+var instructions = {
+	type: "instructions",
+	pages: ['<img src="/static/images/Instructions1.png"></img>',
+			'<img src="/static/images/Instructions2.png"></img>',
+			'<img src="/static/images/Instructions3.png"></img>',
+			'<img src="/static/images/Instructions4.png"></img>'],
+	show_clickable_nav: true
 };
 
-var instruction2 = {
-	type: "image-button-response",
-	stimulus: "/static/images/Instructions2.png",
-	choices: ['Next'],
-	trial_duration: null
-};
-
-var instruction3 = {
-	type: "image-button-response",
-	stimulus: "/static/images/Instructions3.png",
-	choices: ['Next'],
-	trial_duration: null
-};
-
-var instruction4 = {
-	type: "image-button-response",
-	stimulus: "/static/images/Instructions4.png",
-	choices: ['Next'],
-	trial_duration: null
-};
 
 var instruction5 = {
 	type: "image-button-response",
@@ -166,7 +151,6 @@ var instruction5 = {
 	trial_duration: null
 };
 
-var experiment = [];
 
 experiment.push({
 	type: "fullscreen",
@@ -606,7 +590,7 @@ var showReward = {
 };
 
 
-experiment.push(demographics, instruction1, instruction2, instruction3, instruction4);
+experiment.push(demographics, instructions);
 
 let n=4;
 for (let i=0; i<randomizedRoomChoice.length; i++) {
