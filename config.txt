@@ -19,7 +19,7 @@ database_url = sqlite:///participants.db
 table_name = turkdemo
 
 [Server Parameters]
-host = 128.195.133.214
+host = 0.0.0.0
 port = 22362
 cutoff_time = 90
 logfile = server.log
