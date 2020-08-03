@@ -628,6 +628,8 @@ jsPsych.init({
 				file_data: data_file_content.csv(),
 			},
 		});
+
+		psiTurk.completeHIT();
 	}
 });
 
