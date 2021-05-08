@@ -152,14 +152,14 @@ var instruction3 = {
 	trial_duration: null
 };
 
-var instructions4 = {
+var instruction4 = {
 	type: "image-button-response",
 	stimulus: "/static/images/Instructions4.png",
 	choices: ['Next'],
 	trial_duration: null
 };
 
-var instructions5 = {
+var instruction5 = {
 	type: "image-button-response",
 	stimulus: "/static/images/Instructions5.png",
 	choices: ['Next'],
@@ -168,11 +168,11 @@ var instructions5 = {
 
 var experiment = [];
 
+
 experiment.push({
 	type: "fullscreen",
 	fullscreen_mode: true,
 });
-
 
 // Original
 /*
@@ -403,27 +403,27 @@ function rewardSetImages(amount, color, stimTemplate) {
 function selectSquare(){
 	if (select === 1){
 		if (chosPie === 37) {
-			document.getElementById('pie_selection_square').style.left = "22%";
+			document.getElementById('pie_selection_square').style.left = "21.7%";
 			document.getElementById('pie_selection_square').style.display = "inline";
 		} else if (chosPie === 39) {
-			document.getElementById('pie_selection_square').style.left = "64%";
+			document.getElementById('pie_selection_square').style.left = "63.7%";
 			document.getElementById('pie_selection_square').style.display = "inline";
 		}
 	} else if (select === 2) {
 		if (chosRoom === 37) {
-			document.getElementById('room_selection_square').style.left = "12%";
+			document.getElementById('room_selection_square').style.left = "14.2%";
 			document.getElementById('room_selection_square').style.display = "inline";
 		} else if (chosRoom === 39) {
-			document.getElementById('room_selection_square').style.left = "56%";
+			document.getElementById('room_selection_square').style.left = "57.5%";
 			document.getElementById('room_selection_square').style.display = "inline";
 		}
 	} else if (select === 0) {
 		if (autoSelect === 37) {
-			document.getElementById('auto_selection_square').style.left = "22%";
+			document.getElementById('auto_selection_square').style.left = "21.7%";
 			document.getElementById('auto_selection_square').style.display = "inline";
 			document.getElementById('left_selection_prompt').style.display = "inline";
 		} else if (autoSelect === 39) {
-			document.getElementById('auto_selection_square').style.left = "64%";
+			document.getElementById('auto_selection_square').style.left = "63.7%";
 			document.getElementById('auto_selection_square').style.display = "inline";
 			document.getElementById('right_selection_prompt').style.display = "inline";
 		}
@@ -607,7 +607,9 @@ var showReward = {
 
 
 
-experiment.push(demographics, instruction1, instruction2, instruction3, instructions4);
+
+experiment.push(demographics, instruction1, instruction2, instruction3, instruction4);
+
 
 let n=4;
 for (let i=0; i<randomizedRoomChoice.length; i++) {
@@ -621,7 +623,7 @@ for (let i=0; i<randomizedRoomChoice.length; i++) {
 	}
 }
 
-experiment.push(instructions5, olifequestionnaire);
+experiment.push(instruction5, olifequestionnaire);
 
 /*******************
  * Run Task

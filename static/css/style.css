@@ -226,7 +226,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 245px;
     width: 430px;
     left: 30%;
-    top: 28%;
+    top: 25%;
     bottom: 54%;
     display: none;
 }
@@ -235,7 +235,7 @@ p#left_selection_prompt {
     position: absolute;
     top: 60%;
     bottom: 20%;
-    left: 20%;
+    left: 20.7%;
     display: none;
 }
 
@@ -243,7 +243,7 @@ p#right_selection_prompt {
     position: absolute;
     top: 60%;
     bottom: 20%;
-    left: 63%;
+    left: 63.3%;
     display: none;
 }
 
