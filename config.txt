@@ -1,30 +1,30 @@
 [HIT Configuration]
-title = Stroop task
-description = Judge the color of a series of words.
-amt_keywords = Perception, Psychology
+title = LDN Lab - Ctrl Val Pie
+description = Maximize monetary rewards in various slot machines.
+amt_keywords = Decision Making, Psychology, Gambling, Learning
 lifetime = 24
 us_only = true
 approve_requirement = 95
 number_hits_approved = 0
 require_master_workers = false
-contact_email_on_error = youremail@gmail.com
-ad_group = Default psiTurk Stroop Example
-psiturk_keywords = stroop
-organization_name = New Great University
+contact_email_on_error = ldnlab@gmail.com
+ad_group = Ctrl Val Pie
+psiturk_keywords = gambling, slot machines, probability, decision making, learning
+organization_name = University of California, Irvine
 browser_exclude_rule = MSIE, mobile, tablet
-allow_repeats = false
+allow_repeats = true
 
 [Database Parameters]
-database_url = sqlite:///participants.db
-table_name = turkdemo
+#database_url = mysql://root:M1mil@b!@127.0.0.1:3306/ctrl_val_pie
+#table_name = turkdemo
 
 [Server Parameters]
-host = localhost
+host = 0.0.0.0
 port = 22362
-cutoff_time = 30
+cutoff_time = 90
 logfile = server.log
 loglevel = 2
-debug = true
+debug = false
 login_username = examplename
 login_pw = examplepassword
 threads = auto
