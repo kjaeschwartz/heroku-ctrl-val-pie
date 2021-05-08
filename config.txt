@@ -49,5 +49,6 @@ use_psiturk_ad_server = false
 #changed use_psiturk_ad_server from FALSE (lowercase though)  to true.
 #ad_location = https://tranquil-dusk-03182.herokuapp.com/pub\
 #ad_location = https://tranquil-wildwood-31908.herokuapp.com/
-ad_location = https://heroku-ctrl-val-pie.herokuapp.com/pub\
+ad_location = https://heroku-ctrl-val-pie.herokuapp.com/pub
+
 
