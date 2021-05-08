@@ -36,8 +36,18 @@ experiment_code_version=1.0
 num_conds=1
 
 [Shell Parameters]
-persistent_history_file=.psiturk_history
-bonus_message="Thanks for participating!"
-launch_in_sandbox_mode=true
-ad_location=https://tranquil-wildwood-31908.herokuapp.com/
-use_psiturk_ad_server=false
+launch_in_sandbox_mode = true
+persistent_history_file = .psiturk_history
+bonus_message = "Thanks for participating!"
+
+# If you are not using the psiturk ad server, set `use_psiturk_ad_server` to `false` and point `ad_location` to your proxy server <host> and <port>. Format the ad_location like this:
+#
+#   https://<host>:<port>/ad
+
+use_psiturk_ad_server = false
+#use_psiturk_ad_server = true
+#changed use_psiturk_ad_server from FALSE (lowercase though)  to true.
+#ad_location = https://tranquil-dusk-03182.herokuapp.com/pub\
+#ad_location = https://tranquil-wildwood-31908.herokuapp.com/
+ad_location = https://heroku-ctrl-val-pie.herokuapp.com/pub\
+
